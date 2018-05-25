@@ -12,7 +12,7 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private signupService: SignupService,
-    private authService: AuthenticateService
+    public authService: AuthenticateService
   ) { }
 
   ngOnInit() {
