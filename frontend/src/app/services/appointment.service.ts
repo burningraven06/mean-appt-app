@@ -37,12 +37,30 @@ export class AppointmentService {
     .catch( this.catchError);
   }
 
-  getAppointmentsOfLoggedUser(user_id:any): Promise<Appointment[]>{
-    let endpoint = `${environment.BASEAPIURL}/appointments/all/${user_id}`;
+  getAppointmentsOfLoggedUser(user_id:string): Promise<Appointment[]>{
+    let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/all`;
     return this.http
     .get(endpoint, {headers: this.headerOptions})
     .toPromise()
     .then( res => res.json().appointments as Appointment[] )
+    .catch( this.catchError);
+  }
+
+  getApptByIdOfLoggedUser(user_id:string, appt_id:string): Promise<Appointment>{
+    let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
+    return this.http
+    .get(endpoint, { headers: this.headerOptions})
+    .toPromise()
+    .then( res => res.json().appointment as Appointment)
+    .catch(this.catchError);
+  }
+
+  editApptByIdOfLoggedUser(user_id:string, appt_id:string, appt:Appointment): Promise<Appointment>{
+    let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
+    return this.http
+    .put(endpoint, JSON.stringify(appt), {headers: this.headerOptions})
+    .toPromise()
+    .then( res => res.json().appointment as Appointment)
     .catch( this.catchError);
   }
 }

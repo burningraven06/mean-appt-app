@@ -24,8 +24,11 @@
 
   <div class='col-sm-12'>
     <div class='row'>
-
-      <div class='col-sm-4 mt24 '>
+      <div class='col-sm-4 mt24 ' *ngIf='!show_form'>
+        <h3 class='mb24'> My Appointments</h3>
+        <button class='btn btn-large btn-success' (click)='toggleShowForm()'> Add Appointment</button>
+      </div>
+      <div class='col-sm-4 mt24 ' *ngIf='show_form'>
         <h3 class='mb24'> Create Appointment</h3>
         <form #createApptForm="ngForm" (ngSubmit)="createAppointment(createApptForm.value); createApptForm.reset()">
           <div class='form-group'>
@@ -45,12 +48,13 @@
             <input type='text' class='form-control' name='appt_notes' ngModel required placeholder = "Bring the papers he asked to see" />
           </div>
           <button type='submit' class='btn btn-success'> Submit</button>
+          <button class='btn btn-default' (click)='toggleShowForm()'>Cancel</button>
         </form>
       </div>
 
       <div class='col-sm-8 mt24'>
         <div *ngFor="let appt of appointments" class="col-xs-12 col-sm-12">
-          <h3> <a href="appointment/{{ appt._id}}"> {{appt.title}} </a> </h3>
+          <h3> <a href="appointment-detail/{{ appt._id}}"> {{appt.title}} </a> </h3>
           <p> Appt On: <strong>{{ appt.appointment_date.substring(0, 10)}}</strong> with <strong>{{ appt.with_person}}</strong></p>
         </div>
       </div>

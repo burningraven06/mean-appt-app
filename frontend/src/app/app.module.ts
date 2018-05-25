@@ -15,6 +15,7 @@ import { AppointmentService } from './services/appointment.service';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AppointmentComponent } from './components/appointment/appointment.component';
+import { AppointmentDetailsComponent } from './components/appointment-details/appointment-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AppointmentComponent } from './components/appointment/appointment.compo
     HomeComponent,
     LoginComponent,
     LogoutComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    AppointmentDetailsComponent
   ],
   imports: [
     RouterModule.forRoot(AppRoutes),

@@ -26,6 +26,10 @@ export class AppointmentComponent implements OnInit {
     this.show_alert = false;
   }
 
+  show_form = false;
+  toggleShowForm(){
+    this.show_form = !this.show_form;
+  }
 
   createAppointment(theForm: any){
     if (!theForm.appt_title || !theForm.appt_with_person || !theForm.appt_date || !theForm.appt_notes){
