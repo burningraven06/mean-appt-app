@@ -35,11 +35,13 @@ export class AppointmentDetailsComponent implements OnInit {
   }
 
   toggleEditForm(){
+    this.show_delete = false;
     this.show_editForm = !this.show_editForm;
     this.getAppointment();
   }
 
   toggleDelete(){
+    this.show_editForm = false;
     this.show_delete = !this.show_delete;
   }
 

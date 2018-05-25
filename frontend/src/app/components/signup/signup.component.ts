@@ -32,16 +32,26 @@ export class SignupComponent implements OnInit {
     return re.test(email);
   }
 
+  validatePassMatch(pass1, pass2){
+    return (pass1 === pass2);
+  }
+
   signupUser(form: any){
-    if (!form.user_email || !form.user_password || !form.user_fullname){
+    if (!form.user_email || !form.user_password || !form.user_fullname || !form.user_password_confirm){
       this.show_error = true;
       this.err_text = "Please fill all values";
       return ;
     }
 
-    if (!this.validateEmail(!form.user_email)){
+    if (!this.validateEmail(form.user_email)){
       this.show_error = true;
       this.err_text = "Please use valid Email";
+      return ;
+    }
+
+    if (!this.validatePassMatch(form.user_password, form.user_passpword_confirm)){
+      this.show_error = true;
+      this.err_text = "Passwords don't Match!";
       return ;
     }
 

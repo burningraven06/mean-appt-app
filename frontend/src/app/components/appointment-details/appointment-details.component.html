@@ -1,30 +1,37 @@
-<div class='mt24' *ngIf="!authService.isLoggedIn">
-  <h3> You are not logged in!</h3>
-  <p> Please <a routerLink='/login'> click here to Login </a> in order to continue.</p>
+<div *ngIf="!authService.isLoggedIn" class='container pad-zero'>
+  <div class='jumbotron'>
+    <div class='row'>
+      <div class='col-xs-12 mt48' >
+        <h3> You are not logged in!</h3>
+        <p> Please <a routerLink='/login'> click here to Login </a> in order to continue.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class='mt24' *ngIf='authService.isLoggedIn'>
-  <div class='col-md-12 mt24'>
+<div *ngIf='show_error' class='col-md-12'>
+  <div class='col-md-4 offset-md-4 pad-zero'>
+    <div class='alert alert-danger alert-dismissble' role='alert'>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="resetShowError()"><span aria-hidden="true">&times;</span></button>
+        <strong>Warning!</strong> {{err_text}}
+    </div>
+  </div>
+</div>
+
+<div *ngIf='show_alert' class='col-md-12'>
+  <div class='col-md-4 offset-4 pad-zero'>
+    <div class='alert alert-success alert-dismissble' role='alert'>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="resetShowError()"><span aria-hidden="true">&times;</span></button>
+        <strong>Success!</strong> Your appointment has been edited.
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf='authService.isLoggedIn'>
+  <div class='jumbotron'>
     <div class='row'>
       <div class='col-md-6 pad-zero'>
-
-        <div *ngIf='show_error' class='col-md-12'>
-          <div class='pad-zero'>
-            <div class='alert alert-danger alert-dismissble' role='alert'>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="resetShowError()"><span aria-hidden="true">&times;</span></button>
-                <strong>Warning!</strong> {{err_text}}
-            </div>
-          </div>
-        </div>
-
-        <div *ngIf='show_alert' class='col-md-12'>
-          <div class='pad-zero'>
-            <div class='alert alert-success alert-dismissble' role='alert'>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="resetShowError()"><span aria-hidden="true">&times;</span></button>
-                <strong>Success!</strong> Your appointment has been edited.
-            </div>
-          </div>
-        </div>
 
         <div class='col-md-12 pad-zero'>
           <h1> {{ appointment.title }} </h1>

@@ -1,11 +1,17 @@
-<div class='mt24' *ngIf="!authService.isLoggedIn">
-  <h3> You are not logged in!</h3>
-  <p> Please <a routerLink='/login'> click here to Login </a> in order to continue.</p>
+<div *ngIf="!authService.isLoggedIn" class='container pad-zero'>
+  <div class='jumbotron'>
+    <div class='row'>
+      <div class='col-xs-12 mt48'>
+        <h3> You are not logged in!</h3>
+        <p> Please <a routerLink='/login'> click here to Login </a> in order to continue.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class='mt24' *ngIf='authService.isLoggedIn'>
-  <div *ngIf='show_error' class='col-md-12'>
-    <div class='col-md-4 pad-zero'>
+<div *ngIf='authService.isLoggedIn'>
+  <div class='mt24'*ngIf='show_error' class='col-md-12'>
+    <div class='col-md-4 offset-md-4 pad-zero'>
       <div class='alert alert-danger alert-dismissble' role='alert'>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="resetShowError()"><span aria-hidden="true">&times;</span></button>
           <strong>Warning!</strong> {{err_text}}
@@ -14,7 +20,7 @@
   </div>
 
   <div *ngIf='show_alert' class='col-md-12'>
-    <div class='col-md-4 pad-zero'>
+    <div class='col-md-4 offset-md-4 pad-zero'>
       <div class='alert alert-success alert-dismissble' role='alert'>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="resetShowError()"><span aria-hidden="true">&times;</span></button>
           <strong>Success!</strong> Your appointment has been created.
@@ -22,44 +28,45 @@
     </div>
   </div>
 
-  <div class='col-sm-12'>
-    <div class='row'>
-      <div class='col-sm-4 mt24 ' *ngIf='!show_form'>
-        <h3 class='mb24'> My Appointments</h3>
-        <button class='btn btn-large btn-success' (click)='toggleShowForm()'> Add Appointment</button>
-      </div>
-      <div class='col-sm-4 mt24 ' *ngIf='show_form'>
-        <h3 class='mb24'> Create Appointment</h3>
-        <form #createApptForm="ngForm" (ngSubmit)="createAppointment(createApptForm.value); createApptForm.reset()">
-          <div class='form-group'>
-            <label>Title</label>
-            <input type='text' class='form-control' name='appt_title' ngModel required placeholder='Lunch Meeting at Plaza Hotel'/>
-          </div>
-          <div class='form-group'>
-            <label>With</label>
-            <input type='text' class='form-control' name='appt_with_person' ngModel required placeholder = "Henry John" />
-          </div>
-          <div class='form-group'>
-            <label>Date</label>
-            <input type='date' class='form-control' name='appt_date' ngModel required />
-          </div>
-          <div class='form-group'>
-            <label>Notes</label>
-            <input type='text' class='form-control' name='appt_notes' ngModel required placeholder = "Bring the papers he asked to see" />
-          </div>
-          <button type='submit' class='btn btn-success'> Submit</button>
-          <button class='btn btn-default' (click)='toggleShowForm()'>Cancel</button>
-        </form>
-      </div>
-
-      <div class='col-sm-8 mt24'>
-        <div *ngFor="let appt of appointments" class="col-xs-12 col-sm-12">
-          <h3> <a href="appointments/{{ authService.getLoggedUserID() }}/{{ appt._id}}"> {{appt.title}} </a> </h3>
-          <p> Appt On: <strong>{{ appt.appointment_date.substring(0, 10)}}</strong> with <strong>{{ appt.with_person}}</strong></p>
+  <div class='container pad-zero'>
+    <div class='jumbotron'>
+      <div class='row'>
+        <div class='col-sm-4 ' *ngIf='!show_form'>
+          <h3 class='mb24'> My Appointments</h3>
+          <button class='btn btn-large btn-success' (click)='toggleShowForm()'> Add Appointment</button>
         </div>
+        <div class='col-sm-4 ' *ngIf='show_form'>
+          <h3 class='mb24'> Create Appointment</h3>
+          <form #createApptForm="ngForm" (ngSubmit)="createAppointment(createApptForm.value); createApptForm.reset()">
+            <div class='form-group'>
+              <label>Title</label>
+              <input type='text' class='form-control' name='appt_title' ngModel required placeholder='Lunch Meeting at Plaza Hotel'/>
+            </div>
+            <div class='form-group'>
+              <label>With</label>
+              <input type='text' class='form-control' name='appt_with_person' ngModel required placeholder = "Henry John" />
+            </div>
+            <div class='form-group'>
+              <label>Date</label>
+              <input type='date' class='form-control' name='appt_date' ngModel required />
+            </div>
+            <div class='form-group'>
+              <label>Notes</label>
+              <input type='text' class='form-control' name='appt_notes' ngModel required placeholder = "Bring the papers he asked to see" />
+            </div>
+            <button type='submit' class='btn btn-success'> Submit</button>
+            <button class='btn btn-default' (click)='toggleShowForm()'>Cancel</button>
+          </form>
+        </div>
+
+        <div class='col-sm-6 offset-sm-1 mt24'>
+          <div *ngFor="let appt of appointments" class="col-xs-12 col-sm-12">
+            <h3> <a href="appointments/{{ appt._id}}"> {{appt.title}} </a> </h3>
+            <p> Appt On: <strong>{{ appt.appointment_date.substring(0, 10)}}</strong> with <strong>{{ appt.with_person}}</strong></p>
+          </div>
+        </div>
+
       </div>
-
-
     </div>
   </div>
 

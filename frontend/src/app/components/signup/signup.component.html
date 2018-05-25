@@ -1,6 +1,6 @@
 <div *ngIf="!authService.isLoggedIn">
   <div *ngIf='show_alert' class='col-md-12'>
-    <div class='col-md-4 pad-zero'>
+    <div class='col-md-4 offset-md-4 pad-zero'>
       <div class='alert alert-success alert-dismissble' role='alert'>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <strong>Success!</strong> Your account has been created.
@@ -10,7 +10,7 @@
   </div>
 
   <div *ngIf='show_error' class='col-md-12'>
-    <div class='col-md-4 pad-zero'>
+    <div class='col-md-4 offset-md-4 pad-zero'>
       <div class='alert alert-danger alert-dismissble' role='alert'>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="resetShowError()"><span aria-hidden="true">&times;</span></button>
           <strong>Warning!</strong> {{err_text}}
@@ -18,28 +18,45 @@
     </div>
   </div>
 
-  <div class='col-xs-12 col-sm-4 mt48 '>
-    <h3 class='mb24'> Signup</h3>
-    <form #signupForm="ngForm" (ngSubmit)="signupUser(signupForm.value)">
-      <div class='form-group'>
-        <label>Name</label>
-        <input type='text' class='form-control' name='user_fullname' ngModel required placeholder='Toufiq AppTestUser' />
+  <div class='container pad-zero'>
+    <div class='jumbotron'>
+      <div class='row'>
+        <div class='col-xs-12 col-sm-5 '>
+          <h3 class='mb24'> Signup</h3>
+          <form #signupForm="ngForm" (ngSubmit)="signupUser(signupForm.value)">
+            <div class='form-group'>
+              <label>Name</label>
+              <input type='text' class='form-control' name='user_fullname' ngModel required placeholder='Toufiq AppTestUser' />
+            </div>
+            <div class='form-group'>
+              <label>Email</label>
+              <input type='email' class='form-control' name='user_email' ngModel required placeholder='name@example.com'/>
+            </div>
+            <div class='form-group'>
+              <label>Password</label>
+              <input type='password' class='form-control' name='user_password' ngModel required placeholder = "******" />
+            </div>
+            <div class='form-group'>
+              <label>Confirm</label>
+              <input type='password' class='form-control' name='user_password_confirm' ngModel required placeholder = "******" />
+            </div>
+            <button type='submit' class='btn btn-success'> Submit</button>
+          </form>
+        </div>
+        <div class='col-xs-12 col-sm-4 offset-2 mt80 '>
+          <img src='assets/images/account.png' />
+        </div>
       </div>
-      <div class='form-group'>
-        <label>Email</label>
-        <input type='email' class='form-control' name='user_email' ngModel required placeholder='name@example.com'/>
-      </div>
-      <div class='form-group'>
-        <label>Password</label>
-        <input type='password' class='form-control' name='user_password' ngModel required placeholder = "******" />
-      </div>
-      <button type='submit' class='btn btn-success'> Submit</button>
-    </form>
-
+    </div>
   </div>
-
 </div>
 
-<div class='col-xs-12 col-sm-4 mt48 ' *ngIf="authService.isLoggedIn">
-  <h3 class='mb24'> You are already logged in</h3>
+<div class='container pad-zero'>
+  <div class='jumbotron'>
+    <div class='row'>
+      <div class='col-xs-12 mt48' *ngIf="authService.isLoggedIn">
+        <h3> You are already logged in as {{ authService.getLoggedUserEmail()}}</h3>
+      </div>
+    </div>
+  </div>
 </div>

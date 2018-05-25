@@ -20,8 +20,8 @@ export class SignupService {
 	}
 
   createUser(user:any): Promise<any> {
-    // let endpoint = `${environment.BASEAPIURL}/users/signup`;
-    let endpoint = 'https://meanjwtrstcrd.herokuapp.com/api/users/signup'
+    let endpoint = `${environment.BASEAPIURL}/users/signup`;
+    // let endpoint = 'https://meanjwtrstcrd.herokuapp.com/api/users/signup';
     return this.http
     .post(endpoint, JSON.stringify(user), {headers: this.headerOptions})
     .toPromise()

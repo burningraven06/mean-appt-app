@@ -28,7 +28,7 @@ export const AppRoutes: Routes = [
     component : AppointmentComponent
   },
   {
-    path: 'appointments/:user_id/:appt_id',
+    path: 'appointments/:appt_id',
     component: AppointmentDetailsComponent
   },
   {

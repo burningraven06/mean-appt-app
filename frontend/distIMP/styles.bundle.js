@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n.btn, .form-control, .jumbotron, .alert{\n  border-radius :0;\n}\n.pad-zero{\n  padding:0;\n}\n.mt48{\n  margin-top:48px;\n}\n.mt24{\n  margin-top:24px;\n}\n.mb24{\n  margin-bottom:24px;\n}\n.mt64{\n  margin-top: 64px;\n}\n.mt80{\n  margin-top:80px;\n}\n.jumbotron{\n  padding: 4em;\n  background-color: #f4f4f4;\n}\n.home_span_me{\n  font-family: monospace;\n  font-size: 1.4em;\n}\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n.btn, .form-control, .jumbotron{\n  border-radius :0;\n}\n.pad-zero{\n  padding:0;\n}\n.mt48{\n  margin-top:48px;\n}\n.mt24{\n  margin-top:24px;\n}\n.mb24{\n  margin-bottom:24px;\n}\n.mt64{\n  margin-top: 64px;\n}\n.mt80{\n  margin-top:80px;\n}\n", ""]);
 
 // exports
 

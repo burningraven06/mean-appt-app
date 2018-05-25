@@ -53,7 +53,10 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/appointments']);
       };
     })
-    .catch(err => console.log("This is here ", err));
+    .catch(err => {
+      this.show_error = true;
+      this.err_text = "Invalid Credentials";
+    });
   }
 
 }

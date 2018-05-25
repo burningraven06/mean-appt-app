@@ -14,8 +14,8 @@ export class AuthenticateService {
 
   private catchError(error: any): Promise<any>{
     console.error('Error: ', error);
-    // return Promise.reject(error.message);
-    return error;
+    return Promise.reject(error.message);
+    // return error;
   }
 
   private setSession(authResult) {
