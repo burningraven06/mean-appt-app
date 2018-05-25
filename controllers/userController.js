@@ -20,6 +20,7 @@ exports.loginUser = (req, res, next) => {
 
         if (result){
           const jwtSignOpts = {
+            name: data[0].fullname,
             email: data[0].email,
             user_id: data[0]._id
           }
@@ -28,10 +29,8 @@ exports.loginUser = (req, res, next) => {
           }
 
           const token = jwt.sign(jwtSignOpts, process.env.JWT_SECRET, jwtTokenOpts);
-
           return res.status(200).json({ msg: "Auth Success", token : token});
         }
-
         return res.status(401).json({ msg: "Auth Failed"});
       })
     }

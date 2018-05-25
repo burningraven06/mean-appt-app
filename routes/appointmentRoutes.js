@@ -5,6 +5,7 @@ const appointmentController = require('../controllers/appointmentController');
 
 appointmentRouter.get('/test',  appointmentController.test);
 
+appointmentRouter.post('/create',  appointmentController.createAppointment);
 
 
 module.exports = appointmentRouter;

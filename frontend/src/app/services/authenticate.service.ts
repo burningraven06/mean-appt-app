@@ -3,6 +3,7 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import  {environment}  from '../../environments/environment';
 import * as moment from "moment";
+import * as JWTDecode from 'jwt-decode';
 
 @Injectable()
 export class AuthenticateService {
@@ -23,22 +24,42 @@ export class AuthenticateService {
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
   }
 
+  setUserInfo(token){
+    localStorage.setItem('user_fullname', token.name);
+    localStorage.setItem('user_email', token.email);
+    localStorage.setItem('user_id', token.user_id);
+  }
+
   logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("expires_at");
-  }
-
-  getExpiration() {
-    const expiration = localStorage.getItem("expires_at");
-    const expiresAt = JSON.parse(expiration);
-    return moment(expiresAt);
+    localStorage.removeItem("user_fullname");
+    localStorage.removeItem("user_email");
   }
 
   get isLoggedIn(){
-    // const expiration = localStorage.getItem("expires_at");
-    // const expiresAt = JSON.parse(expiration);
-    // return moment().isBefore( moment(expiresAt) );
     return !!localStorage.getItem("token");
+  }
+
+  getLoggedUserID(){
+    return localStorage.getItem('user_id');
+  }
+
+  getLoggedUserFullName(){
+    return localStorage.getItem('user_fullname');
+  }
+
+  getLoggedUserEmail(){
+    return localStorage.getItem('user_email');
+  }
+
+  decodeToken(token: string): any {
+    try{
+      return JWTDecode(token);
+    }
+    catch(Error){
+      return null;
+    }
   }
 
   authenticateUser(user:any): Promise<any> {
@@ -47,6 +68,8 @@ export class AuthenticateService {
     .post(endpoint, JSON.stringify(user), { headers: this.headerOptions})
     .toPromise()
     .then(res => {
+      var decodedToken = this.decodeToken(res.json().token);
+      this.setUserInfo(decodedToken);
       this.setSession(res.json());
     })
     .catch(this.catchError);
