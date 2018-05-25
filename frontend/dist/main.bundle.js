@@ -879,7 +879,6 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -889,7 +888,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -913,7 +911,8 @@ var AppointmentService = (function () {
     //
     // }
     AppointmentService.prototype.createAppointment = function (appt) {
-        var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/create";
+        var endpoint = 'https://meanjwtrstcrd.herokuapp.com/api/appointments/create';
+        // let endpoint = `${environment.BASEAPIURL}/appointments/create`;
         return this.http
             .post(endpoint, JSON.stringify(appt), { headers: this.headerOptions })
             .toPromise()
@@ -921,7 +920,8 @@ var AppointmentService = (function () {
             .catch(this.catchError);
     };
     AppointmentService.prototype.getAppointmentsOfLoggedUser = function (user_id) {
-        var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/" + user_id + "/all";
+        // let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/all`;
+        var endpoint = "https://meanjwtrstcrd.herokuapp.com/api/appointments/" + user_id + "/all";
         return this.http
             .get(endpoint, { headers: this.headerOptions })
             .toPromise()
@@ -929,7 +929,8 @@ var AppointmentService = (function () {
             .catch(this.catchError);
     };
     AppointmentService.prototype.getApptByIdOfLoggedUser = function (user_id, appt_id) {
-        var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/" + user_id + "/" + appt_id;
+        // let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
+        var endpoint = "https://meanjwtrstcrd.herokuapp.com/api/appointments/" + user_id + "/" + appt_id;
         return this.http
             .get(endpoint, { headers: this.headerOptions })
             .toPromise()
@@ -937,7 +938,8 @@ var AppointmentService = (function () {
             .catch(this.catchError);
     };
     AppointmentService.prototype.editApptByIdOfLoggedUser = function (user_id, appt_id, appt) {
-        var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/" + user_id + "/" + appt_id;
+        // let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
+        var endpoint = "https://meanjwtrstcrd.herokuapp.com/api/appointments/" + user_id + "/" + appt_id;
         return this.http
             .put(endpoint, JSON.stringify(appt), { headers: this.headerOptions })
             .toPromise()
@@ -945,7 +947,8 @@ var AppointmentService = (function () {
             .catch(this.catchError);
     };
     AppointmentService.prototype.deleteAppByIdofLoggedUser = function (user_id, appt_id) {
-        var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/" + user_id + "/" + appt_id;
+        // let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
+        var endpoint = "https://meanjwtrstcrd.herokuapp.com/api/appointments/" + user_id + "/" + appt_id;
         return this.http
             .delete(endpoint, { headers: this.headerOptions })
             .toPromise()
@@ -973,11 +976,10 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_jwt_decode__ = __webpack_require__("../../../../jwt-decode/lib/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_jwt_decode___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_jwt_decode__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__("../../../../moment/moment.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jwt_decode__ = __webpack_require__("../../../../jwt-decode/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jwt_decode___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jwt_decode__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__("../../../../moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -987,7 +989,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -1004,7 +1005,7 @@ var AuthenticateService = (function () {
         return error;
     };
     AuthenticateService.prototype.setSession = function (authResult) {
-        var expiresAt = __WEBPACK_IMPORTED_MODULE_5_moment__().add(authResult.expiresIn, 'second');
+        var expiresAt = __WEBPACK_IMPORTED_MODULE_4_moment__().add(authResult.expiresIn, 'second');
         localStorage.setItem('token', authResult.token);
         localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
     };
@@ -1037,7 +1038,7 @@ var AuthenticateService = (function () {
     };
     AuthenticateService.prototype.decodeToken = function (token) {
         try {
-            return __WEBPACK_IMPORTED_MODULE_4_jwt_decode__(token);
+            return __WEBPACK_IMPORTED_MODULE_3_jwt_decode__(token);
         }
         catch (Error) {
             return null;
@@ -1045,7 +1046,8 @@ var AuthenticateService = (function () {
     };
     AuthenticateService.prototype.authenticateUser = function (user) {
         var _this = this;
-        var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/users/authenticate";
+        // let endpoint = `${environment.BASEAPIURL}/users/authenticate`;
+        var endpoint = 'https://meanjwtrstcrd.herokuapp.com/api/users/authenticate';
         return this.http
             .post(endpoint, JSON.stringify(user), { headers: this.headerOptions })
             .toPromise()
@@ -1077,7 +1079,6 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1087,7 +1088,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -1102,7 +1102,8 @@ var SignupService = (function () {
         return error;
     };
     SignupService.prototype.createUser = function (user) {
-        var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/users/signup";
+        // let endpoint = `${environment.BASEAPIURL}/users/signup`;
+        var endpoint = 'https://meanjwtrstcrd.herokuapp.com/api/users/signup';
         return this.http
             .post(endpoint, JSON.stringify(user), { headers: this.headerOptions })
             .toPromise()
@@ -1126,9 +1127,15 @@ var _a;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `.angular-cli.json`.
+// The file contents for the current environment will overwrite these during build.
 var environment = {
-    production: true,
-    BASEAPIURL: 'https://meanjwtrstcrd.herokuapp.com/api'
+    production: false,
+    // BASEAPIURL : 'https://meanjwtrstcrd.herokuapp.com/api'
+    BASEAPIURL: 'http://localhost:3000/api'
 };
 //# sourceMappingURL=environment.js.map
 

@@ -63,7 +63,8 @@ export class AuthenticateService {
   }
 
   authenticateUser(user:any): Promise<any> {
-    let endpoint = `${environment.BASEAPIURL}/users/authenticate`;
+    // let endpoint = `${environment.BASEAPIURL}/users/authenticate`;
+    let endpoint = 'https://meanjwtrstcrd.herokuapp.com/api/users/authenticate';
     return this.http
     .post(endpoint, JSON.stringify(user), { headers: this.headerOptions})
     .toPromise()

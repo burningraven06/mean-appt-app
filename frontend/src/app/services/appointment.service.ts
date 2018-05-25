@@ -29,7 +29,8 @@ export class AppointmentService {
   // }
 
   createAppointment(appt: Appointment): Promise<Appointment>{
-    let endpoint = `${environment.BASEAPIURL}/appointments/create`;
+    let endpoint = 'https://meanjwtrstcrd.herokuapp.com/api/appointments/create'
+    // let endpoint = `${environment.BASEAPIURL}/appointments/create`;
     return this.http
     .post(endpoint, JSON.stringify(appt), {headers: this.headerOptions})
     .toPromise()
@@ -38,7 +39,8 @@ export class AppointmentService {
   }
 
   getAppointmentsOfLoggedUser(user_id:string): Promise<Appointment[]>{
-    let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/all`;
+    // let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/all`;
+    let endpoint = `https://meanjwtrstcrd.herokuapp.com/api/appointments/${user_id}/all`;
     return this.http
     .get(endpoint, {headers: this.headerOptions})
     .toPromise()
@@ -47,7 +49,8 @@ export class AppointmentService {
   }
 
   getApptByIdOfLoggedUser(user_id:string, appt_id:string): Promise<Appointment>{
-    let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
+    // let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
+    let endpoint = `https://meanjwtrstcrd.herokuapp.com/api/appointments/${user_id}/${appt_id}`;
     return this.http
     .get(endpoint, { headers: this.headerOptions})
     .toPromise()
@@ -56,7 +59,9 @@ export class AppointmentService {
   }
 
   editApptByIdOfLoggedUser(user_id:string, appt_id:string, appt:Appointment): Promise<Appointment>{
-    let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
+    // let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
+    let endpoint = `https://meanjwtrstcrd.herokuapp.com/api/appointments/${user_id}/${appt_id}`;
+
     return this.http
     .put(endpoint, JSON.stringify(appt), {headers: this.headerOptions})
     .toPromise()
@@ -65,7 +70,8 @@ export class AppointmentService {
   }
 
   deleteAppByIdofLoggedUser(user_id:string, appt_id:string): Promise<any>{
-    let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
+    // let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
+    let endpoint = `https://meanjwtrstcrd.herokuapp.com/api/appointments/${user_id}/${appt_id}`;
     return this.http
     .delete(endpoint, {headers: this.headerOptions})
     .toPromise()
