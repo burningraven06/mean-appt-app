@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+.btn, .form-control{
+  border-radius :0;
+}
+.pad-zero{
+  padding:0;
+}
+.mt48{
+  margin-top:48px;
+}
+.mb24{
+  margin-bottom:24px;
+}
