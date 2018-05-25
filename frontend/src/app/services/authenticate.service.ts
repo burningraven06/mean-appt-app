@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import  {environment}  from '../../environments/environment';
-import * as moment from "moment";
 import * as JWTDecode from 'jwt-decode';
+import * as moment from 'moment';
 
 @Injectable()
 export class AuthenticateService {
@@ -24,13 +24,13 @@ export class AuthenticateService {
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
   }
 
-  setUserInfo(token){
+  private setUserInfo(token){
     localStorage.setItem('user_fullname', token.name);
     localStorage.setItem('user_email', token.email);
     localStorage.setItem('user_id', token.user_id);
   }
 
-  logout() {
+  public logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("expires_at");
     localStorage.removeItem("user_fullname");
@@ -41,19 +41,19 @@ export class AuthenticateService {
     return !!localStorage.getItem("token");
   }
 
-  getLoggedUserID(){
+  public getLoggedUserID(){
     return localStorage.getItem('user_id');
   }
 
-  getLoggedUserFullName(){
+  public getLoggedUserFullName(){
     return localStorage.getItem('user_fullname');
   }
 
-  getLoggedUserEmail(){
+  public getLoggedUserEmail(){
     return localStorage.getItem('user_email');
   }
 
-  decodeToken(token: string): any {
+  private decodeToken(token: string): any {
     try{
       return JWTDecode(token);
     }
@@ -73,7 +73,6 @@ export class AuthenticateService {
       this.setSession(res.json());
     })
     .catch(this.catchError);
-
   }
 
 }

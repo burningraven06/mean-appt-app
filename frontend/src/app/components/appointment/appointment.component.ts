@@ -12,7 +12,7 @@ export class AppointmentComponent implements OnInit {
 
   constructor(
     private appointmentService: AppointmentService,
-    private authService: AuthenticateService
+    public authService: AuthenticateService
   ) { }
 
   appointments: Appointment[];

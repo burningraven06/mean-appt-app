@@ -13,7 +13,7 @@ export class AppointmentDetailsComponent implements OnInit {
 
   constructor(
     private appointmentService: AppointmentService,
-    private authService: AuthenticateService,
+    public authService: AuthenticateService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) { }
