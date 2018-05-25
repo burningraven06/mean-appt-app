@@ -15,6 +15,7 @@ export class AppointmentComponent implements OnInit {
     private authService: AuthenticateService
   ) { }
 
+  appointments: Appointment[];
 
   show_alert = false;
   show_error = false;
@@ -43,12 +44,23 @@ export class AppointmentComponent implements OnInit {
     this.appointmentService.createAppointment(appointment)
     .then( (appt) => {
       this.show_alert = true;
-      console.log("APPT COMP ", appt)
+      this.appointments.push(appt);
+      // console.log("APPT COMP ", appt);
     })
     .catch( err => {
       console.log("APPT COMP ", err)
     });
 
+  }
+
+  getUserAppointments(){
+    const user_id= this.authService.getLoggedUserID();
+    this.appointmentService.getAppointmentsOfLoggedUser(user_id)
+    .then( data => {
+      this.appointments = data;
+      // console.log("APP COMP ", data);
+    })
+    .catch( err => console.log(err));
   }
 
   ngOnInit() {
@@ -57,6 +69,7 @@ export class AppointmentComponent implements OnInit {
     //   console.log(app)
     // })
     // .catch(err => console.log(err));
+    this.getUserAppointments();
   }
 
 }
