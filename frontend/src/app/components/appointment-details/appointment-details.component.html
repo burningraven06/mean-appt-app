@@ -34,7 +34,7 @@
         </div>
         <div class='col-md-12 mt48 pad-zero'>
           <button class='btn btn-warning btn-large' (click)='toggleEditForm()'>Edit Appointment</button>
-          <button class='btn btn-danger btn-large'> Delete </button>
+          <button class='btn btn-danger btn-large' (click)="toggleDelete()"> Delete </button>
         </div>
       </div>
       <div class='col-md-4 pad-zero'>
@@ -59,6 +59,18 @@
             <button type='submit' class='btn btn-success'> Edit</button>
             <button class='btn btn-default' (click)='toggleEditForm()'>Cancel</button>
           </form>
+        </div>
+
+        <div class='mt80' *ngIf="show_delete">
+          <h5 class='mt24'> Remove appointment? </h5>
+          <h5 class='mt24'>
+            {{appointment.title}} with {{ appointment.with_person}} on <br />{{ appointment.appointment_date.substring(0, 10)}}
+          </h5>
+          <div class='mt64'>
+            <button class='btn btn-success btn-large' (click)="deleteAppt()"> Yes, Remove This</button>
+            <button class='btn btn-default btn-large' (click)="toggleDelete()"> Cancel</button>
+          </div>
+
         </div>
       </div>
     </div>

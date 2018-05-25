@@ -49,7 +49,7 @@ export class AppointmentComponent implements OnInit {
     .then( (appt) => {
       this.show_alert = true;
       this.appointments.push(appt);
-      // console.log("APPT COMP ", appt);
+      this.show_form = false;
     })
     .catch( err => {
       console.log("APPT COMP ", err)

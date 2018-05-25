@@ -5,6 +5,18 @@ exports.test = (req, res, next) => {
   res.status(200).json({msg: "protected route works"});
 }
 
+exports.deleteAppointmentByIdByUser = (req, res, next) => {
+  Appointment.remove({ _id: req.params.appt_id})
+  .then( result => {
+    console.log("Product Deleted? ", result["ok"]);
+		res.status(200).json({ msg: "Appointment Deleted"}) ;
+	})
+	.catch( error => {
+		console.log(error);
+		res.status(500).json({ error: error })
+	});
+}
+
 exports.updateAppointmentByIdByUser = (req, res, next) => {
   Appointment.update(
     {

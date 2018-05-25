@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppointmentService} from '../../services/appointment.service';
 import { AuthenticateService} from '../../services/authenticate.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Appointment} from '../../class/appointment';
 
 @Component({
@@ -14,7 +14,8 @@ export class AppointmentDetailsComponent implements OnInit {
   constructor(
     private appointmentService: AppointmentService,
     private authService: AuthenticateService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   appt_id = this.activatedRoute.snapshot.paramMap.get('appt_id');
@@ -25,6 +26,7 @@ export class AppointmentDetailsComponent implements OnInit {
 
   show_alert = false;
   show_error = false;
+  show_delete = false;
   err_text = "";
 
   resetShowError(){
@@ -35,6 +37,10 @@ export class AppointmentDetailsComponent implements OnInit {
   toggleEditForm(){
     this.show_editForm = !this.show_editForm;
     this.getAppointment();
+  }
+
+  toggleDelete(){
+    this.show_delete = !this.show_delete;
   }
 
   editAppt(editForm: any){
@@ -63,6 +69,16 @@ export class AppointmentDetailsComponent implements OnInit {
     .catch(err => {
       console.log(err);
     });
+  }
+
+  deleteAppt(){
+    this.appointmentService.deleteAppByIdofLoggedUser(this.user_id, this.appt_id)
+    .then( () => {
+      this.router.navigate(['/appointments']);
+    })
+    .catch(err =>{
+      console.log(err);
+    })
   }
 
   ngOnInit() {

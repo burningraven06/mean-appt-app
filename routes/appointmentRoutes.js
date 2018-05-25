@@ -7,6 +7,7 @@ appointmentRouter.get('/test',  appointmentController.test);
 appointmentRouter.get('/:user_id/all',  appointmentController.getAppointmentsByUser);
 appointmentRouter.get('/:user_id/:appt_id',  appointmentController.getAppointmentByIdByUser);
 appointmentRouter.put('/:user_id/:appt_id',  appointmentController.updateAppointmentByIdByUser);
+appointmentRouter.delete('/:user_id/:appt_id',  appointmentController.deleteAppointmentByIdByUser);
 appointmentRouter.post('/create',  appointmentController.createAppointment);
 
 

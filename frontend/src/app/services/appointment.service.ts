@@ -63,4 +63,13 @@ export class AppointmentService {
     .then( res => res.json().appointment as Appointment)
     .catch( this.catchError);
   }
+
+  deleteAppByIdofLoggedUser(user_id:string, appt_id:string): Promise<any>{
+    let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
+    return this.http
+    .delete(endpoint, {headers: this.headerOptions})
+    .toPromise()
+    .then( res => res.json() )
+    .catch( this.catchError);
+  }
 }
