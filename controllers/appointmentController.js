@@ -86,8 +86,31 @@ exports.getAppointmentsByUser = (req, res, next) =>{
 	});
 }
 
+exports.createAppointmentWithImg = (req, res, next) => {
+  if (!req.body.title || !req.body.with_person || !req.body.appointment_date || !req.body.notes || !req.body.user_id){
+    return res.status(500).json({msg: "Values Missing"});
+  }
+  new Appointment({
+    _id : new mongoose.Types.ObjectId(),
+    title : req.body.title,
+    with_person : req.body.with_person,
+    appointment_date :req.body.appointment_date,
+    notes: req.body.notes,
+    user: req.body.user_id,
+    appt_img: req.file.path
+  }).save()
+  .then( result => {
+    console.log(result);
+    res.status(201).json({ msg: "appointment created", appointment_created: true, appointment: result});
+  })
+  .catch( err => {
+    console.log(err);
+    res.status(500).json({ error: err});
+  });
+}
+
 exports.createAppointment = (req, res, next) => {
-  if (!req.body.title || !req.body.with_person || !req.body.appointment_date || !req.body.notes){
+  if (!req.body.title || !req.body.with_person || !req.body.appointment_date || !req.body.notes || !req.body.user_id){
     return res.status(500).json({msg: "Values Missing"});
   }
 
@@ -97,7 +120,7 @@ exports.createAppointment = (req, res, next) => {
     with_person : req.body.with_person,
     appointment_date :req.body.appointment_date,
     notes: req.body.notes,
-    user: req.body.user_id
+    user: req.body.user_id,
   }).save()
   .then( result => {
     console.log(result);

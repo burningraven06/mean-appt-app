@@ -49,7 +49,7 @@ export class SignupComponent implements OnInit {
       return ;
     }
 
-    if (!this.validatePassMatch(form.user_password, form.user_passpword_confirm)){
+    if (!this.validatePassMatch(form.user_password, form.user_password_confirm)){
       this.show_error = true;
       this.err_text = "Passwords don't Match!";
       return ;
@@ -70,7 +70,6 @@ export class SignupComponent implements OnInit {
         this.show_error = true;
       }
     }).catch(err => console.log("This is here ", err));
-
 
   }
 

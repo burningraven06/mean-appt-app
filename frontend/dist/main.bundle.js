@@ -846,7 +846,7 @@ var SignupComponent = (function () {
             this.err_text = "Please use valid Email";
             return;
         }
-        if (!this.validatePassMatch(form.user_password, form.user_passpword_confirm)) {
+        if (!this.validatePassMatch(form.user_password, form.user_password_confirm)) {
             this.show_error = true;
             this.err_text = "Passwords don't Match!";
             return;

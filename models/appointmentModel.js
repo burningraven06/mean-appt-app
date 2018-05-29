@@ -23,7 +23,10 @@ const appointmentSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
-  }
+  },
+	appt_img : {
+		type: String,
+	}
 });
 
 module.exports = mongoose.model('Appointment', appointmentSchema);

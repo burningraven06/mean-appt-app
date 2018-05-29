@@ -189,7 +189,7 @@ var AppRoutes = [
         component: __WEBPACK_IMPORTED_MODULE_4__components_appointment_appointment_component__["a" /* AppointmentComponent */]
     },
     {
-        path: 'appointments/:user_id/:appt_id',
+        path: 'appointments/:appt_id',
         component: __WEBPACK_IMPORTED_MODULE_5__components_appointment_details_appointment_details_component__["a" /* AppointmentDetailsComponent */]
     },
     {
@@ -238,7 +238,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/appointment-details/appointment-details.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class='mt24' *ngIf=\"!authService.isLoggedIn\">\n  <h3> You are not logged in!</h3>\n  <p> Please <a routerLink='/login'> click here to Login </a> in order to continue.</p>\n</div>\n\n<div class='mt24' *ngIf='authService.isLoggedIn'>\n  <div class='col-md-12 mt24'>\n    <div class='row'>\n      <div class='col-md-6 pad-zero'>\n\n        <div *ngIf='show_error' class='col-md-12'>\n          <div class='pad-zero'>\n            <div class='alert alert-danger alert-dismissble' role='alert'>\n                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n                <strong>Warning!</strong> {{err_text}}\n            </div>\n          </div>\n        </div>\n\n        <div *ngIf='show_alert' class='col-md-12'>\n          <div class='pad-zero'>\n            <div class='alert alert-success alert-dismissble' role='alert'>\n                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n                <strong>Success!</strong> Your appointment has been edited.\n            </div>\n          </div>\n        </div>\n\n        <div class='col-md-12 pad-zero'>\n          <h1> {{ appointment.title }} </h1>\n          <h3 class='mt24'> {{ authService.getLoggedUserFullName() }} & {{ appointment.with_person}}</h3>\n          <p class='mt24'> Must be there on: <strong>{{ appointment.appointment_date.substring(0, 10) }} </strong></p>\n          <p> Important: <strong> {{ appointment.notes}} </strong></p>\n        </div>\n        <div class='col-md-12 mt48 pad-zero'>\n          <button class='btn btn-warning btn-large' (click)='toggleEditForm()'>Edit Appointment</button>\n          <button class='btn btn-danger btn-large' (click)=\"toggleDelete()\"> Delete </button>\n        </div>\n      </div>\n      <div class='col-md-4 pad-zero'>\n        <div *ngIf='show_editForm'>\n          <form #editApptForm=\"ngForm\" (ngSubmit)=\"editAppt(editApptForm.value)\">\n            <div class='form-group'>\n              <label>Title</label>\n              <input type='text' class='form-control' name='appt_title' [(ngModel)]=\"appointment.title\" required placeholder='Lunch Meeting at Plaza Hotel'/>\n            </div>\n            <div class='form-group'>\n              <label>With</label>\n              <input type='text' class='form-control' name='appt_with_person' [(ngModel)]=\"appointment.with_person\" required placeholder = \"Henry John\" />\n            </div>\n            <div class='form-group'>\n              <label>Date</label>\n              <input type='date' class='form-control' name='appt_date' [(ngModel)]=\"appointment.appointment_date\" required />\n            </div>\n            <div class='form-group'>\n              <label>Notes</label>\n              <input type='text' class='form-control' name='appt_notes' [(ngModel)]=\"appointment.notes\" required placeholder = \"Bring the papers he asked to see\" />\n            </div>\n            <button type='submit' class='btn btn-success'> Edit</button>\n            <button class='btn btn-default' (click)='toggleEditForm()'>Cancel</button>\n          </form>\n        </div>\n\n        <div class='mt80' *ngIf=\"show_delete\">\n          <h5 class='mt24'> Remove appointment? </h5>\n          <h5 class='mt24'>\n            {{appointment.title}} with {{ appointment.with_person}} on <br />{{ appointment.appointment_date.substring(0, 10)}}\n          </h5>\n          <div class='mt64'>\n            <button class='btn btn-success btn-large' (click)=\"deleteAppt()\"> Yes, Remove This</button>\n            <button class='btn btn-default btn-large' (click)=\"toggleDelete()\"> Cancel</button>\n          </div>\n\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div *ngIf=\"!authService.isLoggedIn\" class='container pad-zero'>\n  <div class='jumbotron'>\n    <div class='row'>\n      <div class='col-xs-12 mt48' >\n        <h3> You are not logged in!</h3>\n        <p> Please <a routerLink='/login'> click here to Login </a> in order to continue.</p>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf='show_error' class='col-md-12'>\n  <div class='col-md-4 offset-md-4 pad-zero'>\n    <div class='alert alert-danger alert-dismissble' role='alert'>\n        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n        <strong>Warning!</strong> {{err_text}}\n    </div>\n  </div>\n</div>\n\n<div *ngIf='show_alert' class='col-md-12'>\n  <div class='col-md-4 offset-4 pad-zero'>\n    <div class='alert alert-success alert-dismissble' role='alert'>\n        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n        <strong>Success!</strong> Your appointment has been edited.\n    </div>\n  </div>\n</div>\n\n\n<div *ngIf='authService.isLoggedIn'>\n  <div class='jumbotron'>\n    <div class='row'>\n      <div class='col-md-6 pad-zero'>\n\n        <div class='col-md-12 pad-zero'>\n          <h1> {{ appointment.title }} </h1>\n          <h3 class='mt24'> {{ authService.getLoggedUserFullName() }} & {{ appointment.with_person}}</h3>\n          <p class='mt24'> Must be there on: <strong>{{ appointment.appointment_date.substring(0, 10) }} </strong></p>\n          <p> Important: <strong> {{ appointment.notes}} </strong></p>\n        </div>\n        <div class='col-md-12 mt48 pad-zero'>\n          <button class='btn btn-warning btn-large' (click)='toggleEditForm()'>Edit Appointment</button>\n          <button class='btn btn-danger btn-large' (click)=\"toggleDelete()\"> Delete </button>\n        </div>\n      </div>\n      <div class='col-md-4 pad-zero'>\n        <div *ngIf='show_editForm'>\n          <form #editApptForm=\"ngForm\" (ngSubmit)=\"editAppt(editApptForm.value)\">\n            <div class='form-group'>\n              <label>Title</label>\n              <input type='text' class='form-control' name='appt_title' [(ngModel)]=\"appointment.title\" required placeholder='Lunch Meeting at Plaza Hotel'/>\n            </div>\n            <div class='form-group'>\n              <label>With</label>\n              <input type='text' class='form-control' name='appt_with_person' [(ngModel)]=\"appointment.with_person\" required placeholder = \"Henry John\" />\n            </div>\n            <div class='form-group'>\n              <label>Date</label>\n              <input type='date' class='form-control' name='appt_date' [(ngModel)]=\"appointment.appointment_date\" required />\n            </div>\n            <div class='form-group'>\n              <label>Notes</label>\n              <input type='text' class='form-control' name='appt_notes' [(ngModel)]=\"appointment.notes\" required placeholder = \"Bring the papers he asked to see\" />\n            </div>\n            <button type='submit' class='btn btn-success'> Edit</button>\n            <button class='btn btn-default' (click)='toggleEditForm()'>Cancel</button>\n          </form>\n        </div>\n\n        <div class='mt80' *ngIf=\"show_delete\">\n          <h5 class='mt24'> Remove appointment? </h5>\n          <h5 class='mt24'>\n            {{appointment.title}} with {{ appointment.with_person}} on <br />{{ appointment.appointment_date.substring(0, 10)}}\n          </h5>\n          <div class='mt64'>\n            <button class='btn btn-success btn-large' (click)=\"deleteAppt()\"> Yes, Remove This</button>\n            <button class='btn btn-default btn-large' (click)=\"toggleDelete()\"> Cancel</button>\n          </div>\n\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -283,10 +283,12 @@ var AppointmentDetailsComponent = (function () {
         this.show_alert = false;
     };
     AppointmentDetailsComponent.prototype.toggleEditForm = function () {
+        this.show_delete = false;
         this.show_editForm = !this.show_editForm;
         this.getAppointment();
     };
     AppointmentDetailsComponent.prototype.toggleDelete = function () {
+        this.show_editForm = false;
         this.show_delete = !this.show_delete;
     };
     AppointmentDetailsComponent.prototype.editAppt = function (editForm) {
@@ -366,7 +368,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/appointment/appointment.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class='mt24' *ngIf=\"!authService.isLoggedIn\">\n  <h3> You are not logged in!</h3>\n  <p> Please <a routerLink='/login'> click here to Login </a> in order to continue.</p>\n</div>\n\n<div class='mt24' *ngIf='authService.isLoggedIn'>\n  <div *ngIf='show_error' class='col-md-12'>\n    <div class='col-md-4 pad-zero'>\n      <div class='alert alert-danger alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Warning!</strong> {{err_text}}\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf='show_alert' class='col-md-12'>\n    <div class='col-md-4 pad-zero'>\n      <div class='alert alert-success alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Success!</strong> Your appointment has been created.\n      </div>\n    </div>\n  </div>\n\n  <div class='col-sm-12'>\n    <div class='row'>\n      <div class='col-sm-4 mt24 ' *ngIf='!show_form'>\n        <h3 class='mb24'> My Appointments</h3>\n        <button class='btn btn-large btn-success' (click)='toggleShowForm()'> Add Appointment</button>\n      </div>\n      <div class='col-sm-4 mt24 ' *ngIf='show_form'>\n        <h3 class='mb24'> Create Appointment</h3>\n        <form #createApptForm=\"ngForm\" (ngSubmit)=\"createAppointment(createApptForm.value); createApptForm.reset()\">\n          <div class='form-group'>\n            <label>Title</label>\n            <input type='text' class='form-control' name='appt_title' ngModel required placeholder='Lunch Meeting at Plaza Hotel'/>\n          </div>\n          <div class='form-group'>\n            <label>With</label>\n            <input type='text' class='form-control' name='appt_with_person' ngModel required placeholder = \"Henry John\" />\n          </div>\n          <div class='form-group'>\n            <label>Date</label>\n            <input type='date' class='form-control' name='appt_date' ngModel required />\n          </div>\n          <div class='form-group'>\n            <label>Notes</label>\n            <input type='text' class='form-control' name='appt_notes' ngModel required placeholder = \"Bring the papers he asked to see\" />\n          </div>\n          <button type='submit' class='btn btn-success'> Submit</button>\n          <button class='btn btn-default' (click)='toggleShowForm()'>Cancel</button>\n        </form>\n      </div>\n\n      <div class='col-sm-8 mt24'>\n        <div *ngFor=\"let appt of appointments\" class=\"col-xs-12 col-sm-12\">\n          <h3> <a href=\"appointments/{{ authService.getLoggedUserID() }}/{{ appt._id}}\"> {{appt.title}} </a> </h3>\n          <p> Appt On: <strong>{{ appt.appointment_date.substring(0, 10)}}</strong> with <strong>{{ appt.with_person}}</strong></p>\n        </div>\n      </div>\n\n\n    </div>\n  </div>\n\n</div>\n"
+module.exports = "<div *ngIf=\"!authService.isLoggedIn\" class='container pad-zero'>\n  <div class='jumbotron'>\n    <div class='row'>\n      <div class='col-xs-12 mt48'>\n        <h3> You are not logged in!</h3>\n        <p> Please <a routerLink='/login'> click here to Login </a> in order to continue.</p>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf='authService.isLoggedIn'>\n  <div class='mt24'*ngIf='show_error' class='col-md-12'>\n    <div class='col-md-4 offset-md-4 pad-zero'>\n      <div class='alert alert-danger alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Warning!</strong> {{err_text}}\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf='show_alert' class='col-md-12'>\n    <div class='col-md-4 offset-md-4 pad-zero'>\n      <div class='alert alert-success alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Success!</strong> Your appointment has been created.\n      </div>\n    </div>\n  </div>\n\n  <div class='container pad-zero'>\n    <div class='jumbotron'>\n      <div class='row'>\n        <div class='col-sm-4 ' *ngIf='!show_form'>\n          <h3 class='mb24'> My Appointments</h3>\n          <button class='btn btn-large btn-success' (click)='toggleShowForm()'> Add Appointment</button>\n        </div>\n        <div class='col-sm-4 ' *ngIf='show_form'>\n          <h3 class='mb24'> Create Appointment</h3>\n          <form #createApptForm=\"ngForm\" (ngSubmit)=\"createAppointment(createApptForm.value); createApptForm.reset()\">\n            <div class='form-group'>\n              <label>Title</label>\n              <input type='text' class='form-control' name='appt_title' ngModel required placeholder='Lunch Meeting at Plaza Hotel'/>\n            </div>\n            <div class='form-group'>\n              <label>With</label>\n              <input type='text' class='form-control' name='appt_with_person' ngModel required placeholder = \"Henry John\" />\n            </div>\n            <div class='form-group'>\n              <label>Date</label>\n              <input type='date' class='form-control' name='appt_date' ngModel required />\n            </div>\n            <div class='form-group'>\n              <label>Notes</label>\n              <input type='text' class='form-control' name='appt_notes' ngModel required placeholder = \"Bring the papers he asked to see\" />\n            </div>\n            <button type='submit' class='btn btn-success'> Submit</button>\n            <button class='btn btn-default' (click)='toggleShowForm()'>Cancel</button>\n          </form>\n        </div>\n\n        <div class='col-sm-6 offset-sm-1 mt24'>\n          <div *ngFor=\"let appt of appointments\" class=\"col-xs-12 col-sm-12\">\n            <h3> <a href=\"appointments/{{ appt._id}}\"> {{appt.title}} </a> </h3>\n            <p> Appt On: <strong>{{ appt.appointment_date.substring(0, 10)}}</strong> with <strong>{{ appt.with_person}}</strong></p>\n          </div>\n        </div>\n\n      </div>\n    </div>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -473,7 +475,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".jumbotron{\n  padding: 4em;\n  background-color: #f4f4f4;\n}\n.home_span_me{\n  font-family: monospace;\n  font-size: 1.4em;\n}\n", ""]);
+exports.push([module.i, "\n", ""]);
 
 // exports
 
@@ -486,7 +488,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class='container pad-zero'>\n  <div class='jumbotron'>\n    <h3> Appointments Manager App</h3>\n    <p class='mt48'> App made with MEAN Stack</p>\n    <p> Featuring Rest API, CRUD, JWT, </p>\n    <p class='mt48'> Created By: <span class='home_span_me'> <strong>BurningRaven06</strong></span></p>\n  </div>\n</div>\n"
+module.exports = "<div class='container pad-zero'>\n  <div class='jumbotron'>\n    <div class='row'>\n      <div class='col-md-6'>\n        <h3> Appointments Manager App</h3>\n        <p class='mt48'> App made with MEAN Stack</p>\n        <p> Featuring Rest API, CRUD, JWT, </p>\n        <p> Backend Express Rest API Server hosted at Heroku</p>\n        <p> Non-Rel DB Hosted at MLAB</p>\n        <p> Frontend ngSPA served at Firebase</p>\n        <p class='mt48'> Created By: <span class='home_span_me'> <strong>BurningRaven06</strong></span></p>\n      </div>\n      <div class='col-md-3 offset-2'>\n        <div class='mt48'>\n          <img src='assets/images/clipboard.png' title='MEAN App'/>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -547,7 +549,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"!authService.isLoggedIn\">\n  <div *ngIf='show_error' class='col-md-12'>\n    <div class='col-md-4 pad-zero'>\n      <div class='alert alert-danger alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Warning!</strong> {{err_text}}\n      </div>\n    </div>\n  </div>\n\n  <div class='col-xs-12 col-sm-4 col-sm-offset-3 mt48 '>\n    <h3 class='mb24'> Login</h3>\n    <form #loginForm=\"ngForm\" (ngSubmit)=\"loginUser(loginForm.value)\">\n      <div class='form-group'>\n        <label>Email</label>\n        <input type='email' class='form-control' name='user_email' ngModel required placeholder='name@example.com'/>\n      </div>\n      <div class='form-group'>\n        <label>Password</label>\n        <input type='password' class='form-control' name='user_password' ngModel required placeholder = \"******\" />\n      </div>\n      <button type='submit' class='btn btn-success'> Submit</button>\n    </form>\n  </div>\n</div>\n\n<div class='col-xs-12 col-sm-4 mt48 ' *ngIf=\"authService.isLoggedIn\">\n  <h3 class='mb24'> You are already logged in</h3>\n</div>\n"
+module.exports = "<div *ngIf=\"!authService.isLoggedIn\">\n  <div *ngIf='show_error' class='col-md-12'>\n    <div class='col-md-4 offset-md-4 pad-zero'>\n      <div class='alert alert-danger alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Warning!</strong> {{err_text}}\n      </div>\n    </div>\n  </div>\n\n  <div class='container pad-zero'>\n    <div class='jumbotron'>\n      <div class='row'>\n        <div class='col-xs-12 col-sm-4 offset-4 mt48 '>\n          <h3 class='text-center mb24'> Login</h3>\n          <form #loginForm=\"ngForm\" (ngSubmit)=\"loginUser(loginForm.value)\">\n            <div class='form-group'>\n              <label>Email</label>\n              <input type='email' class='form-control' name='user_email' ngModel required placeholder='name@example.com'/>\n            </div>\n            <div class='form-group'>\n              <label>Password</label>\n              <input type='password' class='form-control' name='user_password' ngModel required placeholder = \"******\" />\n            </div>\n            <button type='submit' class='btn btn-success btn-large btn-block'> Submit</button>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<div class='container pad-zero'>\n  <div class='jumbotron'>\n    <div class='row'>\n      <div class='col-xs-12 mt48' *ngIf=\"authService.isLoggedIn\">\n        <h3> You are already logged in as {{ authService.getLoggedUserEmail()}}</h3>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -610,7 +612,10 @@ var LoginComponent = (function () {
             }
             ;
         })
-            .catch(function (err) { return console.log("This is here ", err); });
+            .catch(function (err) {
+            _this.show_error = true;
+            _this.err_text = "Invalid Credentials";
+        });
     };
     return LoginComponent;
 }());
@@ -784,7 +789,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/signup/signup.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"!authService.isLoggedIn\">\n  <div *ngIf='show_alert' class='col-md-12'>\n    <div class='col-md-4 pad-zero'>\n      <div class='alert alert-success alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Success!</strong> Your account has been created.\n          <p> Click <a routerLink='/login'>here</a> to login with your account. </p>\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf='show_error' class='col-md-12'>\n    <div class='col-md-4 pad-zero'>\n      <div class='alert alert-danger alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Warning!</strong> {{err_text}}\n      </div>\n    </div>\n  </div>\n\n  <div class='col-xs-12 col-sm-4 mt48 '>\n    <h3 class='mb24'> Signup</h3>\n    <form #signupForm=\"ngForm\" (ngSubmit)=\"signupUser(signupForm.value)\">\n      <div class='form-group'>\n        <label>Name</label>\n        <input type='text' class='form-control' name='user_fullname' ngModel required placeholder='Toufiq AppTestUser' />\n      </div>\n      <div class='form-group'>\n        <label>Email</label>\n        <input type='email' class='form-control' name='user_email' ngModel required placeholder='name@example.com'/>\n      </div>\n      <div class='form-group'>\n        <label>Password</label>\n        <input type='password' class='form-control' name='user_password' ngModel required placeholder = \"******\" />\n      </div>\n      <button type='submit' class='btn btn-success'> Submit</button>\n    </form>\n\n  </div>\n\n</div>\n\n<div class='col-xs-12 col-sm-4 mt48 ' *ngIf=\"authService.isLoggedIn\">\n  <h3 class='mb24'> You are already logged in</h3>\n</div>\n"
+module.exports = "<div *ngIf=\"!authService.isLoggedIn\">\n  <div *ngIf='show_alert' class='col-md-12'>\n    <div class='col-md-4 offset-md-4 pad-zero'>\n      <div class='alert alert-success alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Success!</strong> Your account has been created.\n          <p> Click <a routerLink='/login'>here</a> to login with your account. </p>\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf='show_error' class='col-md-12'>\n    <div class='col-md-4 offset-md-4 pad-zero'>\n      <div class='alert alert-danger alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Warning!</strong> {{err_text}}\n      </div>\n    </div>\n  </div>\n\n  <div class='container pad-zero'>\n    <div class='jumbotron'>\n      <div class='row'>\n        <div class='col-xs-12 col-sm-5 '>\n          <h3 class='mb24'> Signup</h3>\n          <form #signupForm=\"ngForm\" (ngSubmit)=\"signupUser(signupForm.value)\">\n            <div class='form-group'>\n              <label>Name</label>\n              <input type='text' class='form-control' name='user_fullname' ngModel required placeholder='Toufiq AppTestUser' />\n            </div>\n            <div class='form-group'>\n              <label>Email</label>\n              <input type='email' class='form-control' name='user_email' ngModel required placeholder='name@example.com'/>\n            </div>\n            <div class='form-group'>\n              <label>Password</label>\n              <input type='password' class='form-control' name='user_password' ngModel required placeholder = \"******\" />\n            </div>\n            <div class='form-group'>\n              <label>Confirm</label>\n              <input type='password' class='form-control' name='user_password_confirm' ngModel required placeholder = \"******\" />\n            </div>\n            <button type='submit' class='btn btn-success'> Submit</button>\n          </form>\n        </div>\n        <div class='col-xs-12 col-sm-4 offset-2 mt80 '>\n          <img src='assets/images/account.png' />\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class='container pad-zero'>\n  <div class='jumbotron'>\n    <div class='row'>\n      <div class='col-xs-12 mt48' *ngIf=\"authService.isLoggedIn\">\n        <h3> You are already logged in as {{ authService.getLoggedUserEmail()}}</h3>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -826,16 +831,24 @@ var SignupComponent = (function () {
         var re = /\S+@\S+\.\S+/;
         return re.test(email);
     };
+    SignupComponent.prototype.validatePassMatch = function (pass1, pass2) {
+        return (pass1 === pass2);
+    };
     SignupComponent.prototype.signupUser = function (form) {
         var _this = this;
-        if (!form.user_email || !form.user_password || !form.user_fullname) {
+        if (!form.user_email || !form.user_password || !form.user_fullname || !form.user_password_confirm) {
             this.show_error = true;
             this.err_text = "Please fill all values";
             return;
         }
-        if (!this.validateEmail(!form.user_email)) {
+        if (!this.validateEmail(form.user_email)) {
             this.show_error = true;
             this.err_text = "Please use valid Email";
+            return;
+        }
+        if (!this.validatePassMatch(form.user_password, form.user_passpword_confirm)) {
+            this.show_error = true;
+            this.err_text = "Passwords don't Match!";
             return;
         }
         var newUser = {
@@ -879,6 +892,7 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -888,6 +902,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -911,8 +926,8 @@ var AppointmentService = (function () {
     //
     // }
     AppointmentService.prototype.createAppointment = function (appt) {
-        var endpoint = 'https://meanjwtrstcrd.herokuapp.com/api/appointments/create';
-        // let endpoint = `${environment.BASEAPIURL}/appointments/create`;
+        // let endpoint = 'https://meanjwtrstcrd.herokuapp.com/api/appointments/create';
+        var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/create";
         return this.http
             .post(endpoint, JSON.stringify(appt), { headers: this.headerOptions })
             .toPromise()
@@ -920,8 +935,8 @@ var AppointmentService = (function () {
             .catch(this.catchError);
     };
     AppointmentService.prototype.getAppointmentsOfLoggedUser = function (user_id) {
-        // let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/all`;
-        var endpoint = "https://meanjwtrstcrd.herokuapp.com/api/appointments/" + user_id + "/all";
+        var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/" + user_id + "/all";
+        // let endpoint = `https://meanjwtrstcrd.herokuapp.com/api/appointments/${user_id}/all`;
         return this.http
             .get(endpoint, { headers: this.headerOptions })
             .toPromise()
@@ -929,8 +944,8 @@ var AppointmentService = (function () {
             .catch(this.catchError);
     };
     AppointmentService.prototype.getApptByIdOfLoggedUser = function (user_id, appt_id) {
-        // let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
-        var endpoint = "https://meanjwtrstcrd.herokuapp.com/api/appointments/" + user_id + "/" + appt_id;
+        var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/" + user_id + "/" + appt_id;
+        // let endpoint = `https://meanjwtrstcrd.herokuapp.com/api/appointments/${user_id}/${appt_id}`;
         return this.http
             .get(endpoint, { headers: this.headerOptions })
             .toPromise()
@@ -938,8 +953,8 @@ var AppointmentService = (function () {
             .catch(this.catchError);
     };
     AppointmentService.prototype.editApptByIdOfLoggedUser = function (user_id, appt_id, appt) {
-        // let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
-        var endpoint = "https://meanjwtrstcrd.herokuapp.com/api/appointments/" + user_id + "/" + appt_id;
+        var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/" + user_id + "/" + appt_id;
+        // let endpoint = `https://meanjwtrstcrd.herokuapp.com/api/appointments/${user_id}/${appt_id}`;
         return this.http
             .put(endpoint, JSON.stringify(appt), { headers: this.headerOptions })
             .toPromise()
@@ -947,8 +962,8 @@ var AppointmentService = (function () {
             .catch(this.catchError);
     };
     AppointmentService.prototype.deleteAppByIdofLoggedUser = function (user_id, appt_id) {
-        // let endpoint = `${environment.BASEAPIURL}/appointments/${user_id}/${appt_id}`;
-        var endpoint = "https://meanjwtrstcrd.herokuapp.com/api/appointments/" + user_id + "/" + appt_id;
+        var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/" + user_id + "/" + appt_id;
+        // let endpoint = `https://meanjwtrstcrd.herokuapp.com/api/appointments/${user_id}/${appt_id}`;
         return this.http
             .delete(endpoint, { headers: this.headerOptions })
             .toPromise()
@@ -1001,8 +1016,8 @@ var AuthenticateService = (function () {
     }
     AuthenticateService.prototype.catchError = function (error) {
         console.error('Error: ', error);
-        // return Promise.reject(error.message);
-        return error;
+        return Promise.reject(error.message);
+        // return error;
     };
     AuthenticateService.prototype.setSession = function (authResult) {
         var expiresAt = __WEBPACK_IMPORTED_MODULE_4_moment__().add(authResult.expiresIn, 'second');
@@ -1079,6 +1094,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1088,6 +1104,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1102,8 +1119,8 @@ var SignupService = (function () {
         return error;
     };
     SignupService.prototype.createUser = function (user) {
-        // let endpoint = `${environment.BASEAPIURL}/users/signup`;
-        var endpoint = 'https://meanjwtrstcrd.herokuapp.com/api/users/signup';
+        var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/users/signup";
+        // let endpoint = 'https://meanjwtrstcrd.herokuapp.com/api/users/signup';
         return this.http
             .post(endpoint, JSON.stringify(user), { headers: this.headerOptions })
             .toPromise()
@@ -1134,8 +1151,7 @@ var _a;
 // The file contents for the current environment will overwrite these during build.
 var environment = {
     production: false,
-    // BASEAPIURL : 'https://meanjwtrstcrd.herokuapp.com/api'
-    BASEAPIURL: 'http://localhost:3000/api'
+    BASEAPIURL: 'https://meanjwtrstcrd.herokuapp.com/api'
 };
 //# sourceMappingURL=environment.js.map
 

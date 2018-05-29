@@ -12,6 +12,9 @@ const checkAuthJwt = require('./middleware/checkAuthJwt');
 //connect to mlab
 const MLABConnection = require('./config/mlab_connection');
 
+//connect to local mongodb for all tests
+// const MONGO_LOCAL = require('./config/mongo_localconn');
+
 //use logging
 app.use(morgan('dev'));
 
@@ -21,6 +24,9 @@ app.use(cors());
 //Setup body parser, get data from form
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+//make files available by browser for get req
+app.use('/file_uploads', express.static('file_uploads'));
 
 //register, authenticate user
 app.use('/api/users', userRoutes);
