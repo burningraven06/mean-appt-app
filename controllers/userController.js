@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const kets = require("../env/keys");
 
 exports.loginUser = (req, res, next) => {
   if (!req.body.email || !req.body.password){
@@ -28,7 +29,7 @@ exports.loginUser = (req, res, next) => {
             expiresIn: 172800
           }
 
-          const token = jwt.sign(jwtSignOpts, process.env.JWT_SECRET, jwtTokenOpts);
+          const token = jwt.sign(jwtSignOpts, keys.JWT_SECRET, jwtTokenOpts);
           return res.status(200).json({ msg: "Auth Success", token : token});
         }
         return res.status(401).json({ msg: "Auth Failed"});
