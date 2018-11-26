@@ -1,0 +1,15 @@
+@media (max-width: 768px) {
+  #addApptBtn{
+    margin-top: 12px;
+    margin-bottom: 24px;
+  }
+}
+
+#appApptsDiv{
+  padding-top: 12px;
+  border-top: 1px solid #a3a3a3;
+}
+.top-appts{
+  padding-left:0; 
+  margin-top:24px
+}

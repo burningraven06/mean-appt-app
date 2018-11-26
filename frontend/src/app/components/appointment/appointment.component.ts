@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppointmentService} from '../../services/appointment.service';
 import { AuthenticateService} from '../../services/authenticate.service';
 import { Appointment} from '../../class/appointment';
+import { DataTableResource } from 'angular-4-data-table';
+
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.component.html',
@@ -16,6 +18,15 @@ export class AppointmentComponent implements OnInit {
   ) { }
 
   appointments: Appointment[];
+  top_appointments: Appointment[];
+
+  // dataTable_itemsResource : any = {};
+  // dataTable_appointments: any = {};
+  // dataTable_itemsCount : number = 0;
+
+  itemResource : any;
+  items = [];
+  itemCount = 0;
 
   show_alert = false;
   show_error = false;
@@ -49,6 +60,8 @@ export class AppointmentComponent implements OnInit {
     .then( (appt) => {
       this.show_alert = true;
       this.appointments.push(appt);
+      this.top_appointments = this.top_appointments.slice(0, -1);
+      this.top_appointments.push(appt);
       this.show_form = false;
     })
     .catch( err => {
@@ -62,9 +75,27 @@ export class AppointmentComponent implements OnInit {
     this.appointmentService.getAppointmentsOfLoggedUser(user_id)
     .then( data => {
       this.appointments = data;
-      // console.log("APP COMP ", data);
+      this.top_appointments = data.slice(0,5);
+      // this.dataTable_itemsCount = data.length;
+      // this.dataTable_itemsResource = new DataTableResource(data);
+      // this.dataTable_itemsResource.count().then(count => this.dataTable_itemsCount = count);
+
+      this.itemResource = new DataTableResource(data);
+      this.items = this.itemResource.items
     })
     .catch( err => console.log(err));
+  }
+
+  // reloadItems(params) {
+  //   this.dataTable_itemsResource.query(params).then(items => this.dataTable_itemsResource = items);
+  // }
+  
+  reloadItems(params) {
+    this.itemResource.query(params).then(items => this.items = items);
+  }
+
+  rowTooltip(item) { 
+    return item.title; 
   }
 
   ngOnInit() {

@@ -6,26 +6,25 @@ const appointmentSchema = mongoose.Schema({
     type: String,
     required: true
   },
-	with_person:  {
+	with_person: {
 		type: String,
 		required: true,
   },
 	appointment_date: {
 		type: Date,
-    default: Date.now,
 		required: true
   },
   notes:{
     type: String,
     required: true,
   },
-  user: {
+  user:{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
   },
-	appt_img : {
-		type: String,
+	appt_img :{
+		type: String
 	}
 });
 

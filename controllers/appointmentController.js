@@ -34,7 +34,7 @@ exports.updateAppointmentByIdByUser = (req, res, next) => {
     Appointment.findById(req.params.appt_id)
     .then( doc => {
 			if (doc!= null){
-				console.log("Updated Order", doc);
+				console.log("Updated Appt", doc);
 				res.status(200).json({ appointment: doc})
 			} else {
 				console.log("Nothing in DB");
@@ -59,21 +59,23 @@ exports.getAppointmentByIdByUser = (req, res, next) =>{
     if (doc){
       res.status(200).json({ appointment: doc});
     } else {
-      res.status(404).json({ msg: "User/Appt Not Found"});
+      res.status(404).json({ appointment : null, msg: "User/Appt Not Found"});
     }
   })
   .catch( err => {
-    console.log(error);
-		res.status(500).json({ error: error});
+    console.log(err);
+		res.status(500).json({ error: err, appointment : null});
   })
 }
 
 exports.getAppointmentsByUser = (req, res, next) =>{
   Appointment.find({ user : req.params.user_id})
-	.select('title with_person appointment_date notes')
+  .select('title with_person appointment_date notes')
+  .sort({ appointment_date : -1})
 	.exec()
 	.then( docs => {
 		if (docs.length > 0){
+      console.log(docs)
 			res.status(200).json({ appointments: docs});
 		} else {
 			console.log("Nothing in DB");
@@ -91,7 +93,7 @@ exports.createAppointmentWithImg = (req, res, next) => {
     return res.status(500).json({msg: "Values Missing"});
   }
   new Appointment({
-    _id : new mongoose.Types.ObjectId(),
+    // _id : new mongoose.Types.ObjectId(),
     title : req.body.title,
     with_person : req.body.with_person,
     appointment_date :req.body.appointment_date,

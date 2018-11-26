@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  BASEAPIURL : 'https://meanjwtrstcrd.herokuapp.com/api'
+  BASEAPIURL : 'https://meanjwtrstcrd.herokuapp.com/api',
+  BASE_LOCAL_URL : 'http://localhost:3000/api'
 };

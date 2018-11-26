@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule }    from '@angular/http';
+import { DataTableModule } from 'angular-4-data-table';
 
 import { AppRoutes} from './app.routing';
 import { AppComponent } from './app.component';
@@ -32,7 +33,8 @@ import { AppointmentDetailsComponent } from './components/appointment-details/ap
     RouterModule.forRoot(AppRoutes),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    DataTableModule
   ],
   providers: [SignupService, AuthenticateService, AppointmentService],
   bootstrap: [AppComponent]

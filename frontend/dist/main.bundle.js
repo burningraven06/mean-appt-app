@@ -55,19 +55,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
-var AppComponent = (function () {
+var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = 'app';
     }
+    AppComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-root',
+            template: __webpack_require__("../../../../../src/app/app.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/app.component.css")]
+        })
+    ], AppComponent);
     return AppComponent;
 }());
-AppComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-root',
-        template: __webpack_require__("../../../../../src/app/app.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/app.component.css")]
-    })
-], AppComponent);
 
 //# sourceMappingURL=app.component.js.map
 
@@ -83,18 +83,19 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_signup_signup_component__ = __webpack_require__("../../../../../src/app/components/signup/signup.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_navbar_navbar_component__ = __webpack_require__("../../../../../src/app/components/navbar/navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_home_home_component__ = __webpack_require__("../../../../../src/app/components/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_signup_service__ = __webpack_require__("../../../../../src/app/services/signup.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_authenticate_service__ = __webpack_require__("../../../../../src/app/services/authenticate.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_appointment_service__ = __webpack_require__("../../../../../src/app/services/appointment.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_logout_logout_component__ = __webpack_require__("../../../../../src/app/components/logout/logout.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_appointment_appointment_component__ = __webpack_require__("../../../../../src/app/components/appointment/appointment.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_appointment_details_appointment_details_component__ = __webpack_require__("../../../../../src/app/components/appointment-details/appointment-details.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angular_4_data_table__ = __webpack_require__("../../../../angular-4-data-table/src/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_signup_signup_component__ = __webpack_require__("../../../../../src/app/components/signup/signup.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_navbar_navbar_component__ = __webpack_require__("../../../../../src/app/components/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_home_home_component__ = __webpack_require__("../../../../../src/app/components/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_signup_service__ = __webpack_require__("../../../../../src/app/services/signup.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_authenticate_service__ = __webpack_require__("../../../../../src/app/services/authenticate.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__services_appointment_service__ = __webpack_require__("../../../../../src/app/services/appointment.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_logout_logout_component__ = __webpack_require__("../../../../../src/app/components/logout/logout.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_appointment_appointment_component__ = __webpack_require__("../../../../../src/app/components/appointment/appointment.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_appointment_details_appointment_details_component__ = __webpack_require__("../../../../../src/app/components/appointment-details/appointment-details.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -118,33 +119,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AppModule = (function () {
+
+var AppModule = /** @class */ (function () {
     function AppModule() {
     }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__components_signup_signup_component__["a" /* SignupComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__components_navbar_navbar_component__["a" /* NavbarComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__components_home_home_component__["a" /* HomeComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__components_login_login_component__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__components_logout_logout_component__["a" /* LogoutComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__components_appointment_appointment_component__["a" /* AppointmentComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__components_appointment_details_appointment_details_component__["a" /* AppointmentDetailsComponent */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_routing__["a" /* AppRoutes */]),
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_5_angular_4_data_table__["a" /* DataTableModule */]
+            ],
+            providers: [__WEBPACK_IMPORTED_MODULE_11__services_signup_service__["a" /* SignupService */], __WEBPACK_IMPORTED_MODULE_12__services_authenticate_service__["a" /* AuthenticateService */], __WEBPACK_IMPORTED_MODULE_13__services_appointment_service__["a" /* AppointmentService */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
+        })
+    ], AppModule);
     return AppModule;
 }());
-AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__components_signup_signup_component__["a" /* SignupComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__components_navbar_navbar_component__["a" /* NavbarComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__components_home_home_component__["a" /* HomeComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__components_login_login_component__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_logout_logout_component__["a" /* LogoutComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__components_appointment_appointment_component__["a" /* AppointmentComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__components_appointment_details_appointment_details_component__["a" /* AppointmentDetailsComponent */]
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_routing__["a" /* AppRoutes */]),
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */]
-        ],
-        providers: [__WEBPACK_IMPORTED_MODULE_10__services_signup_service__["a" /* SignupService */], __WEBPACK_IMPORTED_MODULE_11__services_authenticate_service__["a" /* AuthenticateService */], __WEBPACK_IMPORTED_MODULE_12__services_appointment_service__["a" /* AppointmentService */]],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
-    })
-], AppModule);
 
 //# sourceMappingURL=app.module.js.map
 
@@ -207,7 +210,7 @@ var AppRoutes = [
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Appointment; });
-var Appointment = (function () {
+var Appointment = /** @class */ (function () {
     function Appointment() {
     }
     return Appointment;
@@ -238,7 +241,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/appointment-details/appointment-details.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"!authService.isLoggedIn\" class='container pad-zero'>\n  <div class='jumbotron'>\n    <div class='row'>\n      <div class='col-xs-12 mt48' >\n        <h3> You are not logged in!</h3>\n        <p> Please <a routerLink='/login'> click here to Login </a> in order to continue.</p>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf='show_error' class='col-md-12'>\n  <div class='col-md-4 offset-md-4 pad-zero'>\n    <div class='alert alert-danger alert-dismissble' role='alert'>\n        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n        <strong>Warning!</strong> {{err_text}}\n    </div>\n  </div>\n</div>\n\n<div *ngIf='show_alert' class='col-md-12'>\n  <div class='col-md-4 offset-4 pad-zero'>\n    <div class='alert alert-success alert-dismissble' role='alert'>\n        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n        <strong>Success!</strong> Your appointment has been edited.\n    </div>\n  </div>\n</div>\n\n\n<div *ngIf='authService.isLoggedIn'>\n  <div class='jumbotron'>\n    <div class='row'>\n      <div class='col-md-6 pad-zero'>\n\n        <div class='col-md-12 pad-zero'>\n          <h1> {{ appointment.title }} </h1>\n          <h3 class='mt24'> {{ authService.getLoggedUserFullName() }} & {{ appointment.with_person}}</h3>\n          <p class='mt24'> Must be there on: <strong>{{ appointment.appointment_date.substring(0, 10) }} </strong></p>\n          <p> Important: <strong> {{ appointment.notes}} </strong></p>\n        </div>\n        <div class='col-md-12 mt48 pad-zero'>\n          <button class='btn btn-warning btn-large' (click)='toggleEditForm()'>Edit Appointment</button>\n          <button class='btn btn-danger btn-large' (click)=\"toggleDelete()\"> Delete </button>\n        </div>\n      </div>\n      <div class='col-md-4 pad-zero'>\n        <div *ngIf='show_editForm'>\n          <form #editApptForm=\"ngForm\" (ngSubmit)=\"editAppt(editApptForm.value)\">\n            <div class='form-group'>\n              <label>Title</label>\n              <input type='text' class='form-control' name='appt_title' [(ngModel)]=\"appointment.title\" required placeholder='Lunch Meeting at Plaza Hotel'/>\n            </div>\n            <div class='form-group'>\n              <label>With</label>\n              <input type='text' class='form-control' name='appt_with_person' [(ngModel)]=\"appointment.with_person\" required placeholder = \"Henry John\" />\n            </div>\n            <div class='form-group'>\n              <label>Date</label>\n              <input type='date' class='form-control' name='appt_date' [(ngModel)]=\"appointment.appointment_date\" required />\n            </div>\n            <div class='form-group'>\n              <label>Notes</label>\n              <input type='text' class='form-control' name='appt_notes' [(ngModel)]=\"appointment.notes\" required placeholder = \"Bring the papers he asked to see\" />\n            </div>\n            <button type='submit' class='btn btn-success'> Edit</button>\n            <button class='btn btn-default' (click)='toggleEditForm()'>Cancel</button>\n          </form>\n        </div>\n\n        <div class='mt80' *ngIf=\"show_delete\">\n          <h5 class='mt24'> Remove appointment? </h5>\n          <h5 class='mt24'>\n            {{appointment.title}} with {{ appointment.with_person}} on <br />{{ appointment.appointment_date.substring(0, 10)}}\n          </h5>\n          <div class='mt64'>\n            <button class='btn btn-success btn-large' (click)=\"deleteAppt()\"> Yes, Remove This</button>\n            <button class='btn btn-default btn-large' (click)=\"toggleDelete()\"> Cancel</button>\n          </div>\n\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div *ngIf=\"!authService.isLoggedIn\" class='container pad-zero'>\n  <div class='jumbotron'>\n    <div class='row'>\n      <div class='col-xs-12 mt48' >\n        <h3> You are not logged in!</h3>\n        <p> Please <a routerLink='/login'> click here to Login </a> in order to continue.</p>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf='show_error' class='col-md-12'>\n  <div class='col-md-4 offset-md-4 pad-zero'>\n    <div class='alert alert-danger alert-dismissble' role='alert'>\n        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n        <strong>Warning!</strong> {{err_text}}\n    </div>\n  </div>\n</div>\n\n<div *ngIf='show_alert' class='col-md-12'>\n  <div class='col-md-4 offset-4 pad-zero'>\n    <div class='alert alert-success alert-dismissble' role='alert'>\n        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n        <strong>Success!</strong> Your appointment has been edited.\n    </div>\n  </div>\n</div>\n\n\n<div *ngIf='authService.isLoggedIn'>\n  <div class='jumbotron'>\n    <div *ngIf=\"!appt_not_found\" class='row'>\n      <div class='col-md-6 pad-zero'>\n\n        <div class='col-md-12 pad-zero'>\n          <h1> {{ appointment.title }} </h1>\n          <h3 class='mt24'> {{ authService.getLoggedUserFullName() }} & {{ appointment.with_person}}</h3>\n          <p class='mt24'> Must be there on: <strong>{{ appointment.appointment_date.substring(0, 10) }} </strong></p>\n          <p> Important: <strong> {{ appointment.notes}} </strong></p>\n        </div>\n        <div *ngIf='showMainButtons' class='col-md-12 mt48 pad-zero'>\n          <button class='btn btn-warning btn-large' (click)='toggleEditForm()'>Edit Appointment</button>\n          <button class='btn btn-danger btn-large' (click)=\"toggleDelete()\"> Delete </button>\n        </div>\n      </div>\n      <div class='col-md-4 pad-zero'>\n        <div *ngIf='show_editForm'>\n          <form #editApptForm=\"ngForm\" (ngSubmit)=\"editAppt(editApptForm.value)\">\n            <div class='form-group'>\n              <label>Title</label>\n              <input type='text' class='form-control' name='appt_title' [(ngModel)]=\"appointment.title\" required placeholder='Lunch Meeting at Plaza Hotel'/>\n            </div>\n            <div class='form-group'>\n              <label>With</label>\n              <input type='text' class='form-control' name='appt_with_person' [(ngModel)]=\"appointment.with_person\" required placeholder = \"Henry John\" />\n            </div>\n            <div class='form-group'>\n              <label>Date</label>\n              <input type='date' class='form-control' name='appt_date' [(ngModel)]=\"appointment.appointment_date\" required />\n            </div>\n            <div class='form-group'>\n              <label>Notes</label>\n              <input type='text' class='form-control' name='appt_notes' [(ngModel)]=\"appointment.notes\" required placeholder = \"Bring the papers he asked to see\" />\n            </div>\n            <button type='submit' class='btn btn-success'> Edit</button>\n            <button class='btn btn-default' (click)='toggleEditForm()'>Cancel</button>\n          </form>\n        </div>\n\n        <div class='mt80' *ngIf=\"show_delete\">\n          <h5 class='mt24'> Remove appointment? </h5>\n          <h5 class='mt24'>\n            {{appointment.title}} with {{ appointment.with_person}} on <br />{{ appointment.appointment_date.substring(0, 10)}}\n          </h5>\n          <div class='mt64'>\n            <button class='btn btn-success btn-large' (click)=\"deleteAppt()\"> Yes, Remove This</button>\n            <button class='btn btn-default btn-large' (click)=\"toggleDelete()\"> Cancel</button>\n          </div>\n\n        </div>\n      </div>\n    </div>\n\n    <div *ngIf='appt_not_found'>\n      <h4>Click Here to <a routerLink=\"/appointments\">Go Back</a></h4>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -264,7 +267,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var AppointmentDetailsComponent = (function () {
+var AppointmentDetailsComponent = /** @class */ (function () {
     function AppointmentDetailsComponent(appointmentService, authService, activatedRoute, router) {
         this.appointmentService = appointmentService;
         this.authService = authService;
@@ -272,7 +275,9 @@ var AppointmentDetailsComponent = (function () {
         this.router = router;
         this.appt_id = this.activatedRoute.snapshot.paramMap.get('appt_id');
         this.user_id = this.authService.getLoggedUserID();
+        this.showMainButtons = true;
         this.show_editForm = false;
+        this.appt_not_found = false;
         this.show_alert = false;
         this.show_error = false;
         this.show_delete = false;
@@ -281,15 +286,18 @@ var AppointmentDetailsComponent = (function () {
     AppointmentDetailsComponent.prototype.resetShowError = function () {
         this.show_error = false;
         this.show_alert = false;
+        this.appt_not_found = false;
     };
     AppointmentDetailsComponent.prototype.toggleEditForm = function () {
         this.show_delete = false;
         this.show_editForm = !this.show_editForm;
+        this.showMainButtons = !this.showMainButtons;
         this.getAppointment();
     };
     AppointmentDetailsComponent.prototype.toggleDelete = function () {
         this.show_editForm = false;
         this.show_delete = !this.show_delete;
+        this.showMainButtons = !this.showMainButtons;
     };
     AppointmentDetailsComponent.prototype.editAppt = function (editForm) {
         var _this = this;
@@ -315,7 +323,9 @@ var AppointmentDetailsComponent = (function () {
             _this.appointment = data;
         })
             .catch(function (err) {
-            console.log(err);
+            _this.show_error = true;
+            _this.err_text = "Something went down! Are you sure you provided the correct URL?";
+            _this.appt_not_found = true;
         });
     };
     AppointmentDetailsComponent.prototype.deleteAppt = function () {
@@ -331,18 +341,18 @@ var AppointmentDetailsComponent = (function () {
     AppointmentDetailsComponent.prototype.ngOnInit = function () {
         this.getAppointment();
     };
+    AppointmentDetailsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-appointment-details',
+            template: __webpack_require__("../../../../../src/app/components/appointment-details/appointment-details.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/appointment-details/appointment-details.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_appointment_service__["a" /* AppointmentService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_appointment_service__["a" /* AppointmentService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_authenticate_service__["a" /* AuthenticateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_authenticate_service__["a" /* AuthenticateService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _d || Object])
+    ], AppointmentDetailsComponent);
     return AppointmentDetailsComponent;
+    var _a, _b, _c, _d;
 }());
-AppointmentDetailsComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-appointment-details',
-        template: __webpack_require__("../../../../../src/app/components/appointment-details/appointment-details.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/appointment-details/appointment-details.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_appointment_service__["a" /* AppointmentService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_appointment_service__["a" /* AppointmentService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_authenticate_service__["a" /* AuthenticateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_authenticate_service__["a" /* AuthenticateService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _d || Object])
-], AppointmentDetailsComponent);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=appointment-details.component.js.map
 
 /***/ }),
@@ -355,7 +365,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "@media (max-width: 768px) {\n  #addApptBtn{\n    margin-top: 12px;\n    margin-bottom: 24px;\n  }\n}\n\n#appApptsDiv{\n  padding-top: 12px;\n  border-top: 1px solid #a3a3a3;\n}\n.top-appts{\n  padding-left:0; \n  margin-top:24px\n}", ""]);
 
 // exports
 
@@ -368,7 +378,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/appointment/appointment.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"!authService.isLoggedIn\" class='container pad-zero'>\n  <div class='jumbotron'>\n    <div class='row'>\n      <div class='col-xs-12 mt48'>\n        <h3> You are not logged in!</h3>\n        <p> Please <a routerLink='/login'> click here to Login </a> in order to continue.</p>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf='authService.isLoggedIn'>\n  <div class='mt24'*ngIf='show_error' class='col-md-12'>\n    <div class='col-md-4 offset-md-4 pad-zero'>\n      <div class='alert alert-danger alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Warning!</strong> {{err_text}}\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf='show_alert' class='col-md-12'>\n    <div class='col-md-4 offset-md-4 pad-zero'>\n      <div class='alert alert-success alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Success!</strong> Your appointment has been created.\n      </div>\n    </div>\n  </div>\n\n  <div class='container pad-zero'>\n    <div class='jumbotron'>\n      <div class='row'>\n        <div class='col-sm-4 ' *ngIf='!show_form'>\n          <h3 class='mb24'> My Appointments</h3>\n          <button class='btn btn-large btn-success' (click)='toggleShowForm()'> Add Appointment</button>\n        </div>\n        <div class='col-sm-4 ' *ngIf='show_form'>\n          <h3 class='mb24'> Create Appointment</h3>\n          <form #createApptForm=\"ngForm\" (ngSubmit)=\"createAppointment(createApptForm.value); createApptForm.reset()\">\n            <div class='form-group'>\n              <label>Title</label>\n              <input type='text' class='form-control' name='appt_title' ngModel required placeholder='Lunch Meeting at Plaza Hotel'/>\n            </div>\n            <div class='form-group'>\n              <label>With</label>\n              <input type='text' class='form-control' name='appt_with_person' ngModel required placeholder = \"Henry John\" />\n            </div>\n            <div class='form-group'>\n              <label>Date</label>\n              <input type='date' class='form-control' name='appt_date' ngModel required />\n            </div>\n            <div class='form-group'>\n              <label>Notes</label>\n              <input type='text' class='form-control' name='appt_notes' ngModel required placeholder = \"Bring the papers he asked to see\" />\n            </div>\n            <button type='submit' class='btn btn-success'> Submit</button>\n            <button class='btn btn-default' (click)='toggleShowForm()'>Cancel</button>\n          </form>\n        </div>\n\n        <div class='col-sm-6 offset-sm-1 mt24'>\n          <div *ngFor=\"let appt of appointments\" class=\"col-xs-12 col-sm-12\">\n            <h3> <a href=\"appointments/{{ appt._id}}\"> {{appt.title}} </a> </h3>\n            <p> Appt On: <strong>{{ appt.appointment_date.substring(0, 10)}}</strong> with <strong>{{ appt.with_person}}</strong></p>\n          </div>\n        </div>\n\n      </div>\n    </div>\n  </div>\n\n</div>\n"
+module.exports = "<div *ngIf=\"!authService.isLoggedIn\" class='container pad-zero'>\n  <div class='jumbotron'>\n    <div class='row'>\n      <div class='col-xs-12 mt48'>\n        <h3> You are not logged in!</h3>\n        <p> Please <a routerLink='/login'> click here to Login </a> in order to continue.</p>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf='authService.isLoggedIn'>\n  <div class='mt24'*ngIf='show_error' class='col-md-12'>\n    <div class='col-md-4 offset-md-4 pad-zero'>\n      <div class='alert alert-danger alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Warning!</strong> {{err_text}}\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf='show_alert' class='col-md-12'>\n    <div class='col-md-4 offset-md-4 pad-zero'>\n      <div class='alert alert-success alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Success!</strong> Your appointment has been created.\n      </div>\n    </div>\n  </div>\n\n  <div class='container pad-zero'>\n    <div class='jumbotron'>\n      <div class='row'>\n        <div class='col-sm-12 col-md-4' *ngIf='!show_form'>\n          <h3 class='mb24'> My Appointments</h3>\n          <button class='btn btn-large btn-success' (click)='toggleShowForm()' id=\"addApptBtn\"> Add Appointment</button>\n        </div>\n        <div class='col-sm-12 col-md-4' *ngIf='show_form'>\n          <h3 class='mb24'> Create Appointment</h3>\n          <form #createApptForm=\"ngForm\" (ngSubmit)=\"createAppointment(createApptForm.value); createApptForm.reset()\">\n            <div class='form-group'>\n              <label>Title</label>\n              <input type='text' class='form-control' name='appt_title' ngModel required placeholder='Lunch Meeting at Plaza Hotel'/>\n            </div>\n            <div class='form-group'>\n              <label>With</label>\n              <input type='text' class='form-control' name='appt_with_person' ngModel required placeholder = \"Henry John\" />\n            </div>\n            <div class='form-group'>\n              <label>Date</label>\n              <input type='date' class='form-control' name='appt_date' ngModel required />\n            </div>\n            <div class='form-group'>\n              <label>Notes</label>\n              <input type='text' class='form-control' name='appt_notes' ngModel required placeholder = \"Bring the papers he asked to see\" />\n            </div>\n            <button type='submit' class='btn btn-success'> Submit</button>\n            <button class='btn btn-default' (click)='toggleShowForm()'>Cancel</button>\n          </form>\n        </div>\n\n        <div class='col-sm-12 col-md-6 offset-md-1 '>\n          <h3> Recent Appointments </h3>\n          <div *ngFor=\"let appt of top_appointments\" class=\"col-xs-12 col-sm-12 top-appts\">\n            <h3> <a href=\"appointments/{{ appt._id}}\"> {{appt.title}} </a> </h3>\n            <p> Appt On: <strong>{{ appt.appointment_date.substring(0, 10)}}</strong> with <strong>{{ appt.with_person}}</strong></p>\n          </div>\n        </div>\n      </div>\n      <div class='row mt48' id='appApptsDiv'>\n        <div class='col-xs-12 col-sm-12'>\n          <h3> All Appointments </h3>\n          <table class='table table-striped mt24'>\n            <thead class='thead-dark'>\n              <tr>\n                <th scope=\"col\"> # </th>\n                <th scope=\"col\"> Appointment </th>\n                <th scope=\"col\"> Date </th>\n                <th scope=\"col\"> With </th> \n              </tr>\n            </thead>\n            <tbody *ngFor='let appt of appointments'>\n              <tr>\n                <th scope=\"row\">Counter</th>\n                <td> <a href=\"appointments/{{appt._id}}\">{{appt.title}}</a></td>\n                <td>{{appt.appointment_date.substring(0,10)}}</td>\n                <td>{{appt.with_person}}</td>\n              </tr>\n            </tbody>\n          </table>\n\n\n          <!-- <data-table headerTitle=\"Appointments\" [pagination_limit]=\"true\" [items]=\"dataTable_itemsResource.items\" [itemCount]=\"dataTable_itemsCount\" (reload)=\"reloadItems($event)\"> -->\n          \n            \n\n          <!-- <data-table headerTitle=\"Appointments\" [pagination_limit]=\"true\" [items]=\"items\" [itemCount]=\"itemCount\" (reload)=\"reloadItems($event)\" [rowTooltip]=\"rowTooltip\">\n\n            <data-table-column [property]=\"'title'\" [header]=\"'Appointment'\" [sortable]=\"true\" [resizable]=\"true\" >\n            </data-table-column>\n\n            <data-table-column [property]=\"'appointment_date'\" [header]=\"'Date'\" [sortable]=\"true\" [resizable]=\"true\">\n             </data-table-column>\n\n             <data-table-column [property]=\"'with_person'\" [header]=\"'With'\" [sortable]=\"true\" [resizable]=\"true\">\n              </data-table-column>\n\n          </data-table> -->\n\n        </div>\n      </div>\n    </div>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -381,6 +391,7 @@ module.exports = "<div *ngIf=\"!authService.isLoggedIn\" class='container pad-ze
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_appointment_service__ = __webpack_require__("../../../../../src/app/services/appointment.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_authenticate_service__ = __webpack_require__("../../../../../src/app/services/authenticate.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__class_appointment__ = __webpack_require__("../../../../../src/app/class/appointment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angular_4_data_table__ = __webpack_require__("../../../../angular-4-data-table/src/index.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -394,10 +405,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var AppointmentComponent = (function () {
+
+var AppointmentComponent = /** @class */ (function () {
     function AppointmentComponent(appointmentService, authService) {
         this.appointmentService = appointmentService;
         this.authService = authService;
+        this.items = [];
+        this.itemCount = 0;
         this.show_alert = false;
         this.show_error = false;
         this.err_text = "";
@@ -427,6 +441,8 @@ var AppointmentComponent = (function () {
             .then(function (appt) {
             _this.show_alert = true;
             _this.appointments.push(appt);
+            _this.top_appointments = _this.top_appointments.slice(0, -1);
+            _this.top_appointments.push(appt);
             _this.show_form = false;
         })
             .catch(function (err) {
@@ -439,9 +455,24 @@ var AppointmentComponent = (function () {
         this.appointmentService.getAppointmentsOfLoggedUser(user_id)
             .then(function (data) {
             _this.appointments = data;
-            // console.log("APP COMP ", data);
+            _this.top_appointments = data.slice(0, 5);
+            // this.dataTable_itemsCount = data.length;
+            // this.dataTable_itemsResource = new DataTableResource(data);
+            // this.dataTable_itemsResource.count().then(count => this.dataTable_itemsCount = count);
+            _this.itemResource = new __WEBPACK_IMPORTED_MODULE_4_angular_4_data_table__["b" /* DataTableResource */](data);
+            _this.items = _this.itemResource.items;
         })
             .catch(function (err) { return console.log(err); });
+    };
+    // reloadItems(params) {
+    //   this.dataTable_itemsResource.query(params).then(items => this.dataTable_itemsResource = items);
+    // }
+    AppointmentComponent.prototype.reloadItems = function (params) {
+        var _this = this;
+        this.itemResource.query(params).then(function (items) { return _this.items = items; });
+    };
+    AppointmentComponent.prototype.rowTooltip = function (item) {
+        return item.title;
     };
     AppointmentComponent.prototype.ngOnInit = function () {
         // this.appointmentService.test()
@@ -451,18 +482,18 @@ var AppointmentComponent = (function () {
         // .catch(err => console.log(err));
         this.getUserAppointments();
     };
+    AppointmentComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-appointment',
+            template: __webpack_require__("../../../../../src/app/components/appointment/appointment.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/appointment/appointment.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_appointment_service__["a" /* AppointmentService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_appointment_service__["a" /* AppointmentService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_authenticate_service__["a" /* AuthenticateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_authenticate_service__["a" /* AuthenticateService */]) === "function" && _b || Object])
+    ], AppointmentComponent);
     return AppointmentComponent;
+    var _a, _b;
 }());
-AppointmentComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-appointment',
-        template: __webpack_require__("../../../../../src/app/components/appointment/appointment.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/appointment/appointment.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_appointment_service__["a" /* AppointmentService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_appointment_service__["a" /* AppointmentService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_authenticate_service__["a" /* AuthenticateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_authenticate_service__["a" /* AuthenticateService */]) === "function" && _b || Object])
-], AppointmentComponent);
 
-var _a, _b;
 //# sourceMappingURL=appointment.component.js.map
 
 /***/ }),
@@ -508,21 +539,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var HomeComponent = (function () {
+var HomeComponent = /** @class */ (function () {
     function HomeComponent() {
     }
     HomeComponent.prototype.ngOnInit = function () {
     };
+    HomeComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-home',
+            template: __webpack_require__("../../../../../src/app/components/home/home.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/home/home.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], HomeComponent);
     return HomeComponent;
 }());
-HomeComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-home',
-        template: __webpack_require__("../../../../../src/app/components/home/home.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/home/home.component.css")]
-    }),
-    __metadata("design:paramtypes", [])
-], HomeComponent);
 
 //# sourceMappingURL=home.component.js.map
 
@@ -549,7 +580,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"!authService.isLoggedIn\">\n  <div *ngIf='show_error' class='col-md-12'>\n    <div class='col-md-4 offset-md-4 pad-zero'>\n      <div class='alert alert-danger alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Warning!</strong> {{err_text}}\n      </div>\n    </div>\n  </div>\n\n  <div class='container pad-zero'>\n    <div class='jumbotron'>\n      <div class='row'>\n        <div class='col-xs-12 col-sm-4 offset-4 mt48 '>\n          <h3 class='text-center mb24'> Login</h3>\n          <form #loginForm=\"ngForm\" (ngSubmit)=\"loginUser(loginForm.value)\">\n            <div class='form-group'>\n              <label>Email</label>\n              <input type='email' class='form-control' name='user_email' ngModel required placeholder='name@example.com'/>\n            </div>\n            <div class='form-group'>\n              <label>Password</label>\n              <input type='password' class='form-control' name='user_password' ngModel required placeholder = \"******\" />\n            </div>\n            <button type='submit' class='btn btn-success btn-large btn-block'> Submit</button>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<div class='container pad-zero'>\n  <div class='jumbotron'>\n    <div class='row'>\n      <div class='col-xs-12 mt48' *ngIf=\"authService.isLoggedIn\">\n        <h3> You are already logged in as {{ authService.getLoggedUserEmail()}}</h3>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div *ngIf=\"!authService.isLoggedIn\">\n  <div *ngIf='show_error' class='col-md-12'>\n    <div class='col-md-4 offset-md-4 pad-zero'>\n      <div class='alert alert-danger alert-dismissble' role='alert'>\n          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\" (click)=\"resetShowError()\"><span aria-hidden=\"true\">&times;</span></button>\n          <strong>Warning!</strong> {{err_text}}\n      </div>\n    </div>\n  </div>\n\n  <div class='container pad-zero'>\n    <div class='jumbotron'>\n      <div class='row'>\n        <div class='col-xs-12 col-sm-12 col-md-4 offset-md-4 mt48 '>\n          <h3 class='text-center mb24'> Login</h3>\n          <form #loginForm=\"ngForm\" (ngSubmit)=\"loginUser(loginForm.value)\">\n            <div class='form-group'>\n              <label>Email</label>\n              <input type='email' class='form-control' name='user_email' ngModel required placeholder='name@example.com'/>\n            </div>\n            <div class='form-group'>\n              <label>Password</label>\n              <input type='password' class='form-control' name='user_password' ngModel required placeholder = \"******\" />\n            </div>\n            <button type='submit' class='btn btn-success btn-large btn-block'> Submit</button>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<div class='container pad-zero'>\n  <div class='jumbotron'>\n    <div class='row'>\n      <div class='col-xs-12 mt48' *ngIf=\"authService.isLoggedIn\">\n        <h3> You are already logged in as {{ authService.getLoggedUserEmail()}}</h3>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -573,7 +604,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var LoginComponent = (function () {
+var LoginComponent = /** @class */ (function () {
     function LoginComponent(authService, router) {
         this.authService = authService;
         this.router = router;
@@ -617,18 +648,18 @@ var LoginComponent = (function () {
             _this.err_text = "Invalid Credentials";
         });
     };
+    LoginComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-login',
+            template: __webpack_require__("../../../../../src/app/components/login/login.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/login/login.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_authenticate_service__["a" /* AuthenticateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_authenticate_service__["a" /* AuthenticateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
+    ], LoginComponent);
     return LoginComponent;
+    var _a, _b;
 }());
-LoginComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-login',
-        template: __webpack_require__("../../../../../src/app/components/login/login.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/login/login.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_authenticate_service__["a" /* AuthenticateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_authenticate_service__["a" /* AuthenticateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
-], LoginComponent);
 
-var _a, _b;
 //# sourceMappingURL=login.component.js.map
 
 /***/ }),
@@ -678,7 +709,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var LogoutComponent = (function () {
+var LogoutComponent = /** @class */ (function () {
     function LogoutComponent(authService, router) {
         this.authService = authService;
         this.router = router;
@@ -687,18 +718,18 @@ var LogoutComponent = (function () {
         this.authService.logout();
         this.router.navigate(['/login']);
     };
+    LogoutComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-logout',
+            template: __webpack_require__("../../../../../src/app/components/logout/logout.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/logout/logout.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_authenticate_service__["a" /* AuthenticateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_authenticate_service__["a" /* AuthenticateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
+    ], LogoutComponent);
     return LogoutComponent;
+    var _a, _b;
 }());
-LogoutComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-logout',
-        template: __webpack_require__("../../../../../src/app/components/logout/logout.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/logout/logout.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_authenticate_service__["a" /* AuthenticateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_authenticate_service__["a" /* AuthenticateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
-], LogoutComponent);
 
-var _a, _b;
 //# sourceMappingURL=logout.component.js.map
 
 /***/ }),
@@ -746,24 +777,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var NavbarComponent = (function () {
+var NavbarComponent = /** @class */ (function () {
     function NavbarComponent(authService) {
         this.authService = authService;
     }
     NavbarComponent.prototype.ngOnInit = function () {
     };
+    NavbarComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-navbar',
+            template: __webpack_require__("../../../../../src/app/components/navbar/navbar.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/navbar/navbar.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_authenticate_service__["a" /* AuthenticateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_authenticate_service__["a" /* AuthenticateService */]) === "function" && _a || Object])
+    ], NavbarComponent);
     return NavbarComponent;
+    var _a;
 }());
-NavbarComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-navbar',
-        template: __webpack_require__("../../../../../src/app/components/navbar/navbar.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/navbar/navbar.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_authenticate_service__["a" /* AuthenticateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_authenticate_service__["a" /* AuthenticateService */]) === "function" && _a || Object])
-], NavbarComponent);
 
-var _a;
 //# sourceMappingURL=navbar.component.js.map
 
 /***/ }),
@@ -813,7 +844,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var SignupComponent = (function () {
+var SignupComponent = /** @class */ (function () {
     function SignupComponent(signupService, authService) {
         this.signupService = signupService;
         this.authService = authService;
@@ -867,18 +898,18 @@ var SignupComponent = (function () {
             }
         }).catch(function (err) { return console.log("This is here ", err); });
     };
+    SignupComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'app-signup',
+            template: __webpack_require__("../../../../../src/app/components/signup/signup.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/signup/signup.component.css")]
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_signup_service__["a" /* SignupService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_signup_service__["a" /* SignupService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_authenticate_service__["a" /* AuthenticateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_authenticate_service__["a" /* AuthenticateService */]) === "function" && _b || Object])
+    ], SignupComponent);
     return SignupComponent;
+    var _a, _b;
 }());
-SignupComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-signup',
-        template: __webpack_require__("../../../../../src/app/components/signup/signup.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/signup/signup.component.css")]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_signup_service__["a" /* SignupService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_signup_service__["a" /* SignupService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_authenticate_service__["a" /* AuthenticateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_authenticate_service__["a" /* AuthenticateService */]) === "function" && _b || Object])
-], SignupComponent);
 
-var _a, _b;
 //# sourceMappingURL=signup.component.js.map
 
 /***/ }),
@@ -906,15 +937,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var AppointmentService = (function () {
+var AppointmentService = /** @class */ (function () {
     function AppointmentService(http) {
         this.http = http;
         this.headerOptions = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json', 'Authorization': "BEARER " + localStorage.getItem('token') });
     }
     AppointmentService.prototype.catchError = function (error) {
-        console.error('Error: ', error);
-        // return Promise.reject(error.message);
-        return error;
+        console.error('Error in Appt Service: ', error);
+        return Promise.reject(error.message);
+        // return error;
     };
     // test(): Promise<any> {
     //   let endpoint = `${environment.BASEAPIURL}/appointments/test`;
@@ -926,8 +957,8 @@ var AppointmentService = (function () {
     //
     // }
     AppointmentService.prototype.createAppointment = function (appt) {
-        // let endpoint = 'https://meanjwtrstcrd.herokuapp.com/api/appointments/create';
         var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/create";
+        var endpointLocal = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASE_LOCAL_URL + "/appointments/create";
         return this.http
             .post(endpoint, JSON.stringify(appt), { headers: this.headerOptions })
             .toPromise()
@@ -936,7 +967,7 @@ var AppointmentService = (function () {
     };
     AppointmentService.prototype.getAppointmentsOfLoggedUser = function (user_id) {
         var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/" + user_id + "/all";
-        // let endpoint = `https://meanjwtrstcrd.herokuapp.com/api/appointments/${user_id}/all`;
+        var endpointLocal = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASE_LOCAL_URL + "/appointments/" + user_id + "/all";
         return this.http
             .get(endpoint, { headers: this.headerOptions })
             .toPromise()
@@ -945,7 +976,7 @@ var AppointmentService = (function () {
     };
     AppointmentService.prototype.getApptByIdOfLoggedUser = function (user_id, appt_id) {
         var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/" + user_id + "/" + appt_id;
-        // let endpoint = `https://meanjwtrstcrd.herokuapp.com/api/appointments/${user_id}/${appt_id}`;
+        var endpointLocal = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASE_LOCAL_URL + "/appointments/" + user_id + "/" + appt_id;
         return this.http
             .get(endpoint, { headers: this.headerOptions })
             .toPromise()
@@ -954,7 +985,7 @@ var AppointmentService = (function () {
     };
     AppointmentService.prototype.editApptByIdOfLoggedUser = function (user_id, appt_id, appt) {
         var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/" + user_id + "/" + appt_id;
-        // let endpoint = `https://meanjwtrstcrd.herokuapp.com/api/appointments/${user_id}/${appt_id}`;
+        var endpointLocal = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASE_LOCAL_URL + "/appointments/" + user_id + "/" + appt_id;
         return this.http
             .put(endpoint, JSON.stringify(appt), { headers: this.headerOptions })
             .toPromise()
@@ -963,21 +994,21 @@ var AppointmentService = (function () {
     };
     AppointmentService.prototype.deleteAppByIdofLoggedUser = function (user_id, appt_id) {
         var endpoint = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEAPIURL + "/appointments/" + user_id + "/" + appt_id;
-        // let endpoint = `https://meanjwtrstcrd.herokuapp.com/api/appointments/${user_id}/${appt_id}`;
+        var endpointLocal = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASE_LOCAL_URL + "/appointments/" + user_id + "/" + appt_id;
         return this.http
             .delete(endpoint, { headers: this.headerOptions })
             .toPromise()
             .then(function (res) { return res.json(); })
             .catch(this.catchError);
     };
+    AppointmentService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    ], AppointmentService);
     return AppointmentService;
+    var _a;
 }());
-AppointmentService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-], AppointmentService);
 
-var _a;
 //# sourceMappingURL=appointment.service.js.map
 
 /***/ }),
@@ -1009,7 +1040,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var AuthenticateService = (function () {
+var AuthenticateService = /** @class */ (function () {
     function AuthenticateService(http) {
         this.http = http;
         this.headerOptions = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
@@ -1073,14 +1104,14 @@ var AuthenticateService = (function () {
         })
             .catch(this.catchError);
     };
+    AuthenticateService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    ], AuthenticateService);
     return AuthenticateService;
+    var _a;
 }());
-AuthenticateService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-], AuthenticateService);
 
-var _a;
 //# sourceMappingURL=authenticate.service.js.map
 
 /***/ }),
@@ -1108,7 +1139,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var SignupService = (function () {
+var SignupService = /** @class */ (function () {
     function SignupService(http) {
         this.http = http;
         this.headerOptions = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
@@ -1127,14 +1158,14 @@ var SignupService = (function () {
             .then(function (res) { return res.json(); })
             .catch(this.catchError);
     };
+    SignupService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    ], SignupService);
     return SignupService;
+    var _a;
 }());
-SignupService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-], SignupService);
 
-var _a;
 //# sourceMappingURL=signup.service.js.map
 
 /***/ }),
@@ -1148,10 +1179,10 @@ var _a;
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
-// The file contents for the current environment will overwrite these during build.
 var environment = {
     production: false,
-    BASEAPIURL: 'https://meanjwtrstcrd.herokuapp.com/api'
+    BASEAPIURL: 'https://meanjwtrstcrd.herokuapp.com/api',
+    BASE_LOCAL_URL: 'http://localhost:3000/api'
 };
 //# sourceMappingURL=environment.js.map
 

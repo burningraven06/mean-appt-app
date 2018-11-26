@@ -30,7 +30,7 @@
 
 <div *ngIf='authService.isLoggedIn'>
   <div class='jumbotron'>
-    <div class='row'>
+    <div *ngIf="!appt_not_found" class='row'>
       <div class='col-md-6 pad-zero'>
 
         <div class='col-md-12 pad-zero'>
@@ -39,7 +39,7 @@
           <p class='mt24'> Must be there on: <strong>{{ appointment.appointment_date.substring(0, 10) }} </strong></p>
           <p> Important: <strong> {{ appointment.notes}} </strong></p>
         </div>
-        <div class='col-md-12 mt48 pad-zero'>
+        <div *ngIf='showMainButtons' class='col-md-12 mt48 pad-zero'>
           <button class='btn btn-warning btn-large' (click)='toggleEditForm()'>Edit Appointment</button>
           <button class='btn btn-danger btn-large' (click)="toggleDelete()"> Delete </button>
         </div>
@@ -80,6 +80,10 @@
 
         </div>
       </div>
+    </div>
+
+    <div *ngIf='appt_not_found'>
+      <h4>Click Here to <a routerLink="/appointments">Go Back</a></h4>
     </div>
   </div>
 </div>

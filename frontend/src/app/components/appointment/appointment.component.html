@@ -31,11 +31,11 @@
   <div class='container pad-zero'>
     <div class='jumbotron'>
       <div class='row'>
-        <div class='col-sm-4 ' *ngIf='!show_form'>
+        <div class='col-sm-12 col-md-4' *ngIf='!show_form'>
           <h3 class='mb24'> My Appointments</h3>
-          <button class='btn btn-large btn-success' (click)='toggleShowForm()'> Add Appointment</button>
+          <button class='btn btn-large btn-success' (click)='toggleShowForm()' id="addApptBtn"> Add Appointment</button>
         </div>
-        <div class='col-sm-4 ' *ngIf='show_form'>
+        <div class='col-sm-12 col-md-4' *ngIf='show_form'>
           <h3 class='mb24'> Create Appointment</h3>
           <form #createApptForm="ngForm" (ngSubmit)="createAppointment(createApptForm.value); createApptForm.reset()">
             <div class='form-group'>
@@ -59,13 +59,55 @@
           </form>
         </div>
 
-        <div class='col-sm-6 offset-sm-1 mt24'>
-          <div *ngFor="let appt of appointments" class="col-xs-12 col-sm-12">
+        <div class='col-sm-12 col-md-6 offset-md-1 '>
+          <h3> Recent Appointments </h3>
+          <div *ngFor="let appt of top_appointments" class="col-xs-12 col-sm-12 top-appts">
             <h3> <a href="appointments/{{ appt._id}}"> {{appt.title}} </a> </h3>
             <p> Appt On: <strong>{{ appt.appointment_date.substring(0, 10)}}</strong> with <strong>{{ appt.with_person}}</strong></p>
           </div>
         </div>
+      </div>
+      <div class='row mt48' id='appApptsDiv'>
+        <div class='col-xs-12 col-sm-12'>
+          <h3> All Appointments </h3>
+          <table class='table table-striped mt24'>
+            <thead class='thead-dark'>
+              <tr>
+                <th scope="col"> # </th>
+                <th scope="col"> Appointment </th>
+                <th scope="col"> Date </th>
+                <th scope="col"> With </th> 
+              </tr>
+            </thead>
+            <tbody *ngFor='let appt of appointments'>
+              <tr>
+                <th scope="row">Counter</th>
+                <td> <a href="appointments/{{appt._id}}">{{appt.title}}</a></td>
+                <td>{{appt.appointment_date.substring(0,10)}}</td>
+                <td>{{appt.with_person}}</td>
+              </tr>
+            </tbody>
+          </table>
 
+
+          <!-- <data-table headerTitle="Appointments" [pagination_limit]="true" [items]="dataTable_itemsResource.items" [itemCount]="dataTable_itemsCount" (reload)="reloadItems($event)"> -->
+          
+            
+
+          <!-- <data-table headerTitle="Appointments" [pagination_limit]="true" [items]="items" [itemCount]="itemCount" (reload)="reloadItems($event)" [rowTooltip]="rowTooltip">
+
+            <data-table-column [property]="'title'" [header]="'Appointment'" [sortable]="true" [resizable]="true" >
+            </data-table-column>
+
+            <data-table-column [property]="'appointment_date'" [header]="'Date'" [sortable]="true" [resizable]="true">
+             </data-table-column>
+
+             <data-table-column [property]="'with_person'" [header]="'With'" [sortable]="true" [resizable]="true">
+              </data-table-column>
+
+          </data-table> -->
+
+        </div>
       </div>
     </div>
   </div>

@@ -1,5 +1,1324 @@
 webpackJsonp(["vendor"],{
 
+/***/ "../../../../angular-4-data-table/src/components/column.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataTableColumn; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__types_cell_callback_type__ = __webpack_require__("../../../../angular-4-data-table/src/types/cell-callback.type.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__types_cell_callback_type___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__types_cell_callback_type__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DataTableColumn = /** @class */ (function () {
+    function DataTableColumn() {
+        this.sortable = false;
+        this.resizable = false;
+        this.visible = true;
+        this.styleClassObject = {}; // for [ngClass]
+    }
+    DataTableColumn.prototype.getCellColor = function (row, index) {
+        if (this.cellColors !== undefined) {
+            return this.cellColors(row.item, row, this, index);
+        }
+    };
+    DataTableColumn.prototype.ngOnInit = function () {
+        this._initCellClass();
+    };
+    DataTableColumn.prototype._initCellClass = function () {
+        if (!this.styleClass && this.property) {
+            if (/^[a-zA-Z0-9_]+$/.test(this.property)) {
+                this.styleClass = 'column-' + this.property;
+            }
+            else {
+                this.styleClass = 'column-' + this.property.replace(/[^a-zA-Z0-9_]/g, '');
+            }
+        }
+        if (this.styleClass != null) {
+            this.styleClassObject = (_a = {},
+                _a[this.styleClass] = true,
+                _a);
+        }
+        var _a;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", String)
+    ], DataTableColumn.prototype, "header", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTableColumn.prototype, "sortable", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTableColumn.prototype, "resizable", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", String)
+    ], DataTableColumn.prototype, "property", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", String)
+    ], DataTableColumn.prototype, "styleClass", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__types_cell_callback_type__["CellCallback"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__types_cell_callback_type__["CellCallback"]) === "function" && _a || Object)
+    ], DataTableColumn.prototype, "cellColors", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTableColumn.prototype, "width", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTableColumn.prototype, "visible", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ContentChild */])('dataTableCell'),
+        __metadata("design:type", Object)
+    ], DataTableColumn.prototype, "cellTemplate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ContentChild */])('dataTableHeader'),
+        __metadata("design:type", Object)
+    ], DataTableColumn.prototype, "headerTemplate", void 0);
+    DataTableColumn = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Directive */])({
+            selector: 'data-table-column'
+        })
+    ], DataTableColumn);
+    return DataTableColumn;
+    var _a;
+}());
+
+//# sourceMappingURL=column.component.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/components/header.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataTableHeader; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_component__ = __webpack_require__("../../../../angular-4-data-table/src/components/table.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__header_template__ = __webpack_require__("../../../../angular-4-data-table/src/components/header.template.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__header_style__ = __webpack_require__("../../../../angular-4-data-table/src/components/header.style.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+var DataTableHeader = /** @class */ (function () {
+    function DataTableHeader(dataTable) {
+        this.dataTable = dataTable;
+        this.columnSelectorOpen = false;
+    }
+    DataTableHeader.prototype._closeSelector = function () {
+        this.columnSelectorOpen = false;
+    };
+    DataTableHeader = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'data-table-header',
+            template: __WEBPACK_IMPORTED_MODULE_2__header_template__["a" /* HEADER_TEMPLATE */],
+            styles: [__WEBPACK_IMPORTED_MODULE_3__header_style__["a" /* HEADER_STYLE */]],
+            host: {
+                '(document:click)': '_closeSelector()'
+            }
+        }),
+        __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_24" /* forwardRef */])(function () { return __WEBPACK_IMPORTED_MODULE_1__table_component__["a" /* DataTable */]; }))),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__table_component__["a" /* DataTable */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__table_component__["a" /* DataTable */]) === "function" && _a || Object])
+    ], DataTableHeader);
+    return DataTableHeader;
+    var _a;
+}());
+
+//# sourceMappingURL=header.component.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/components/header.style.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HEADER_STYLE; });
+var HEADER_STYLE = "\n.data-table-header {\n    min-height: 25px;\n    margin-bottom: 10px;\n}\n.title {\n    display: inline-block;\n    margin: 5px 0 0 5px;\n}\n.button-panel {\n    float: right;\n}\n.button-panel button {\n    outline: none !important;\n}\n\n.column-selector-wrapper {\n    position: relative;\n}\n.column-selector-box {\n    box-shadow: 0 0 10px lightgray;\n    width: 150px;\n    padding: 10px;\n    position: absolute;\n    right: 0;\n    top: 1px;\n    z-index: 1060;\n}\n.column-selector-box .checkbox {\n    margin-bottom: 4px;\n}\n.column-selector-fixed-column {\n    font-style: italic;\n}\n";
+//# sourceMappingURL=header.style.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/components/header.template.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HEADER_TEMPLATE; });
+var HEADER_TEMPLATE = "\n<div class=\"data-table-header\">\n    <h4 class=\"title\" [textContent]=\"dataTable.headerTitle\"></h4>\n    <div class=\"button-panel\">\n        <button type=\"button\" class=\"btn btn-default btn-sm refresh-button\"\n            (click)=\"dataTable.reloadItems()\" \n            [attr.aria-label]=\"dataTable.translations.headerReload\" [title]=\"dataTable.translations.headerReload\">\n            <span class=\"glyphicon glyphicon-refresh\"></span>\n        </button>\n        <button type=\"button\" class=\"btn btn-default btn-sm column-selector-button\" [class.active]=\"columnSelectorOpen\"\n            (click)=\"columnSelectorOpen = !columnSelectorOpen; $event.stopPropagation()\" \n            [attr.aria-label]=\"dataTable.translations.headerColumnSelector\" [title]=\"dataTable.translations.headerColumnSelector\">\n            <span class=\"glyphicon glyphicon-list\"></span>\n        </button>\n        <div class=\"column-selector-wrapper\" (click)=\"$event.stopPropagation()\">\n            <div *ngIf=\"columnSelectorOpen\" class=\"column-selector-box panel panel-default\">\n                <div *ngIf=\"dataTable.expandableRows\" class=\"column-selector-fixed-column checkbox\">\n                    <label>\n                        <input type=\"checkbox\" [(ngModel)]=\"dataTable.expandColumnVisible\"/>\n                        <span>{{dataTable.translations.expandColumn}}</span>\n                    </label>\n                </div>\n                <div *ngIf=\"dataTable.indexColumn\" class=\"column-selector-fixed-column checkbox\">\n                    <label>\n                        <input type=\"checkbox\" [(ngModel)]=\"dataTable.indexColumnVisible\"/>\n                        <span>{{dataTable.translations.indexColumn}}</span>\n                    </label>\n                </div>\n                <div *ngIf=\"dataTable.selectColumn\" class=\"column-selector-fixed-column checkbox\">\n                    <label>\n                        <input type=\"checkbox\" [(ngModel)]=\"dataTable.selectColumnVisible\"/>\n                        <span>{{dataTable.translations.selectColumn}}</span>\n                    </label>\n                </div>\n                <div *ngFor=\"let column of dataTable.columns\" class=\"column-selector-column checkbox\">\n                    <label>\n                        <input type=\"checkbox\" [(ngModel)]=\"column.visible\"/>\n                        <span [textContent]=\"column.header\"></span>\n                    </label>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n";
+//# sourceMappingURL=header.template.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/components/pagination.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataTablePagination; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_component__ = __webpack_require__("../../../../angular-4-data-table/src/components/table.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pagination_template__ = __webpack_require__("../../../../angular-4-data-table/src/components/pagination.template.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pagination_style__ = __webpack_require__("../../../../angular-4-data-table/src/components/pagination.style.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+var DataTablePagination = /** @class */ (function () {
+    function DataTablePagination(dataTable) {
+        this.dataTable = dataTable;
+        this.show_range = false;
+        this.show_limit = false;
+        this.show_input = false;
+        this.show_numbers = true;
+    }
+    DataTablePagination.prototype.pageBack = function () {
+        this.dataTable.offset -= Math.min(this.dataTable.limit, this.dataTable.offset);
+    };
+    DataTablePagination.prototype.pageForward = function () {
+        this.dataTable.offset += this.dataTable.limit;
+    };
+    DataTablePagination.prototype.pageFirst = function () {
+        this.dataTable.offset = 0;
+    };
+    DataTablePagination.prototype.pageLast = function () {
+        this.dataTable.offset = (this.maxPage - 1) * this.dataTable.limit;
+    };
+    Object.defineProperty(DataTablePagination.prototype, "maxPage", {
+        get: function () {
+            return Math.ceil(this.dataTable.itemCount / this.dataTable.limit);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DataTablePagination.prototype, "limit", {
+        get: function () {
+            return this.dataTable.limit;
+        },
+        set: function (value) {
+            this.dataTable.limit = Number(value); // TODO better way to handle that value of number <input> is string?
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DataTablePagination.prototype, "page", {
+        get: function () {
+            return this.dataTable.page;
+        },
+        set: function (value) {
+            this.dataTable.page = Number(value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DataTablePagination.prototype.createPageRange = function (number, page) {
+        var displayedPage = 3;
+        var items = [];
+        if (number > 1) {
+            var maxPage = number;
+            var minPage = 1;
+            if (page === 1 && maxPage >= displayedPage) {
+                maxPage = 3;
+            }
+            else if (page > 1 && maxPage > page + 1) {
+                minPage = page - 1;
+                maxPage = page + 1;
+            }
+            else if (page > 2 && maxPage > page) {
+                minPage = page - 1;
+                maxPage = page + 1;
+            }
+            else if (page > 2 && maxPage === page) {
+                minPage = page - 2;
+                maxPage = page;
+            }
+            for (var i = minPage; i <= maxPage; i++) {
+                items.push(i);
+            }
+        }
+        return items;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTablePagination.prototype, "show_range", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTablePagination.prototype, "show_limit", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTablePagination.prototype, "show_input", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTablePagination.prototype, "show_numbers", void 0);
+    DataTablePagination = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'data-table-pagination',
+            template: __WEBPACK_IMPORTED_MODULE_2__pagination_template__["a" /* PAGINATION_TEMPLATE */],
+            styles: [__WEBPACK_IMPORTED_MODULE_3__pagination_style__["a" /* PAGINATION_STYLE */]]
+        }),
+        __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_24" /* forwardRef */])(function () { return __WEBPACK_IMPORTED_MODULE_1__table_component__["a" /* DataTable */]; }))),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__table_component__["a" /* DataTable */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__table_component__["a" /* DataTable */]) === "function" && _a || Object])
+    ], DataTablePagination);
+    return DataTablePagination;
+    var _a;
+}());
+
+//# sourceMappingURL=pagination.component.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/components/pagination.style.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PAGINATION_STYLE; });
+var PAGINATION_STYLE = "\n.pagination-box {\n    position: relative;\n    margin-top: -10px;\n    display: block;\n    height: 30px;\n}\n.pagination-range {\n    margin-top: 7px;\n    margin-left: 3px;\n    display: inline-block;\n}\n.pagination-controllers {\n    float: right;\n}\n.pagination-controllers input {\n    min-width: 60px;\n    /*padding: 1px 0px 0px 5px;*/\n    text-align: right;\n}\n\n.pagination-limit {\n    margin-right: 25px;\n    display: inline-table;\n    width: 150px;\n    float: left;\n}\n.pagination-pages {\n    display: inline-block;\n}\n.pagination-page {\n    width: 102px;\n    display: inline-table;\n}\n.pagination-box button {\n    outline: none !important;\n}\n.pagination-prevpage,\n.pagination-nextpage,\n.pagination-firstpage,\n.pagination-lastpage {\n    vertical-align: top;\n}\n.pagination-reload {\n    color: gray;\n    font-size: 12px;\n}\n";
+//# sourceMappingURL=pagination.style.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/components/pagination.template.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PAGINATION_TEMPLATE; });
+var PAGINATION_TEMPLATE = "\n<div class=\"pagination-box\">\n    <div class=\"pagination-range\" *ngIf=\"show_range\">\n        {{dataTable.translations.paginationRange}}:\n        <span [textContent]=\"dataTable.offset + 1\"></span>\n        -\n        <span [textContent]=\"[dataTable.offset + dataTable.limit , dataTable.itemCount] | min\"></span>\n        /\n        <span [textContent]=\"dataTable.itemCount\"></span>\n    </div>\n    <div class=\"pagination-controllers\">\n        <div class=\"pagination-limit\" *ngIf=\"show_limit\">\n            <div class=\"input-group\">\n                <span class=\"input-group-addon\">{{dataTable.translations.paginationLimit}}:</span>\n                <input #limitInput type=\"number\" class=\"form-control\" min=\"1\" step=\"1\"\n                       [ngModel]=\"limit\" (blur)=\"limit = limitInput.value\"\n                       (keyup.enter)=\"limit = limitInput.value\" (keyup.esc)=\"limitInput.value = limit\"/>\n            </div>\n        </div>\n        <div class=\" pagination-pages\"  *ngIf=\"maxPage > 1\">\n            <button [disabled]=\"dataTable.offset <= 0\" (click)=\"pageFirst()\" class=\"btn btn-default pagination-firstpage\">&laquo;</button>\n            <button [disabled]=\"dataTable.offset <= 0\" (click)=\"pageBack()\" class=\"btn btn-default pagination-prevpage\">&lsaquo;</button>\n            <div class=\"pagination-page\" *ngIf=\"show_input\">\n                <div class=\"input-group\">\n                    <input #pageInput type=\"number\" class=\"form-control\" min=\"1\" step=\"1\" max=\"{{maxPage}}\"\n                           [ngModel]=\"page\" (blur)=\"page = pageInput.value\"\n                           (keyup.enter)=\"page = pageInput.value\" (keyup.esc)=\"pageInput.value = page\"/>\n                    <div class=\"input-group-addon\">\n                        <span>/</span>\n                        <span [textContent]=\"dataTable.lastPage\"></span>\n                    </div>\n                </div>\n            </div>\n            <div class=\"pagination-page\" *ngIf=\"show_numbers\">\n                <button *ngFor=\"let i of createPageRange(maxPage,page)\"\n                    [disabled]=\"i == page\"\n                    (click)=\"page = i\"\n                    class=\"btn btn-default\">{{ i }}</button>\n            </div>\n            <button [disabled]=\"(dataTable.offset + dataTable.limit) >= dataTable.itemCount\" (click)=\"pageForward()\" class=\"btn btn-default pagination-nextpage\">&rsaquo;</button>\n            <button [disabled]=\"(dataTable.offset + dataTable.limit) >= dataTable.itemCount\" (click)=\"pageLast()\" class=\"btn btn-default pagination-lastpage\">&raquo;</button>\n        </div>\n    </div>\n</div>\n";
+//# sourceMappingURL=pagination.template.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/components/row.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataTableRow; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__table_component__ = __webpack_require__("../../../../angular-4-data-table/src/components/table.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__row_template__ = __webpack_require__("../../../../angular-4-data-table/src/components/row.template.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__row_style__ = __webpack_require__("../../../../angular-4-data-table/src/components/row.style.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+var DataTableRow = /** @class */ (function () {
+    function DataTableRow(dataTable) {
+        this.dataTable = dataTable;
+        this.selectedChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this._this = this; // FIXME is there no template keyword for this in angular 2?
+    }
+    Object.defineProperty(DataTableRow.prototype, "selected", {
+        get: function () {
+            return this._selected;
+        },
+        set: function (selected) {
+            this._selected = selected;
+            this.selectedChange.emit(selected);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DataTableRow.prototype, "displayIndex", {
+        // other:
+        get: function () {
+            if (this.dataTable.pagination) {
+                return this.dataTable.displayParams.offset + this.index + 1;
+            }
+            else {
+                return this.index + 1;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DataTableRow.prototype.getTooltip = function () {
+        if (this.dataTable.rowTooltip) {
+            return this.dataTable.rowTooltip(this.item, this, this.index);
+        }
+        return '';
+    };
+    DataTableRow.prototype.ngOnDestroy = function () {
+        this.selected = false;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTableRow.prototype, "item", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Number)
+    ], DataTableRow.prototype, "index", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+        __metadata("design:type", Object)
+    ], DataTableRow.prototype, "selectedChange", void 0);
+    DataTableRow = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: '[dataTableRow]',
+            template: __WEBPACK_IMPORTED_MODULE_2__row_template__["a" /* ROW_TEMPLATE */],
+            styles: [__WEBPACK_IMPORTED_MODULE_3__row_style__["a" /* ROW_STYLE */]]
+        }),
+        __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_24" /* forwardRef */])(function () { return __WEBPACK_IMPORTED_MODULE_1__table_component__["a" /* DataTable */]; }))),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__table_component__["a" /* DataTable */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__table_component__["a" /* DataTable */]) === "function" && _a || Object])
+    ], DataTableRow);
+    return DataTableRow;
+    var _a;
+}());
+
+//# sourceMappingURL=row.component.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/components/row.style.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ROW_STYLE; });
+var ROW_STYLE = "\n.select-column {\n    text-align: center;\n}\n\n.row-expand-button {\n    cursor: pointer;\n    text-align: center;\n}\n\n.clickable {\n    cursor: pointer;\n}\n";
+//# sourceMappingURL=row.style.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/components/row.template.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ROW_TEMPLATE; });
+var ROW_TEMPLATE = "\n<tr\tclass=\"data-table-row\"\n    [title]=\"getTooltip()\"\n    [style.background-color]=\"dataTable.getRowColor(item, index, _this)\"\n    [class.row-odd]=\"index % 2 === 0\"\n    [class.row-even]=\"index % 2 === 1\"\n    [class.selected]=\"selected\"\n    [class.clickable]=\"dataTable.selectOnRowClick\"\n    (dblclick)=\"dataTable.rowDoubleClicked(_this, $event)\"\n    (click)=\"dataTable.rowClicked(_this, $event)\"\n    >\n    <td [hide]=\"!dataTable.expandColumnVisible\">\n        <div tabindex=\"0\" role=\"button\" (click)=\"expanded = !expanded; $event.stopPropagation()\" class=\"row-expand-button\"\n            [attr.aria-expanded]=\"expanded\" [title]=\"dataTable.translations.expandRow\" [attr.aria-label]=\"dataTable.translations.expandRow\">\n            <span class=\"glyphicon\" [ngClass]=\"{'glyphicon-triangle-right': !expanded, 'glyphicon-triangle-bottom': expanded}\" aria-hidden=\"true\"></span>\n        </div>\n    </td>\n    <td [hide]=\"!dataTable.indexColumnVisible\" class=\"index-column\" [textContent]=\"displayIndex\"></td>\n    <td [hide]=\"!dataTable.selectColumnVisible\" class=\"select-column\">\n        <input type=\"checkbox\" [(ngModel)]=\"selected\"/>\n    </td>\n    <td *ngFor=\"let column of dataTable.columns\" [hide]=\"!column.visible\" [ngClass]=\"column.styleClassObject\" class=\"data-column\"\n        [style.background-color]=\"column.getCellColor(_this, index)\">\n        <div *ngIf=\"!column.cellTemplate\" [textContent]=\"item[column.property]\"></div>\n        <div *ngIf=\"column.cellTemplate\" [ngTemplateOutlet]=\"column.cellTemplate\" [ngOutletContext]=\"{column: column, row: _this, item: item}\"></div>\n    </td>\n</tr>\n<tr *ngIf=\"dataTable.expandableRows\" [hide]=\"!expanded\" class=\"row-expansion\">\n    <td [attr.colspan]=\"dataTable.columnCount\">\n        <div [ngTemplateOutlet]=\"dataTable.expandTemplate\" [ngOutletContext]=\"{row: _this, item: item}\"></div>\n    </td>\n</tr>\n";
+//# sourceMappingURL=row.template.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/components/table.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataTable; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__column_component__ = __webpack_require__("../../../../angular-4-data-table/src/components/column.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__row_component__ = __webpack_require__("../../../../angular-4-data-table/src/components/row.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__types_row_callback_type__ = __webpack_require__("../../../../angular-4-data-table/src/types/row-callback.type.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__types_row_callback_type___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__types_row_callback_type__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__types_data_table_translations_type__ = __webpack_require__("../../../../angular-4-data-table/src/types/data-table-translations.type.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__types_data_table_translations_type___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__types_data_table_translations_type__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__types_default_translations_type__ = __webpack_require__("../../../../angular-4-data-table/src/types/default-translations.type.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_drag__ = __webpack_require__("../../../../angular-4-data-table/src/utils/drag.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__table_template__ = __webpack_require__("../../../../angular-4-data-table/src/components/table.template.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__table_style__ = __webpack_require__("../../../../angular-4-data-table/src/components/table.style.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+var DataTable = /** @class */ (function () {
+    function DataTable() {
+        this._items = [];
+        this.header = true;
+        this.pagination = true;
+        this.pagination_range = false;
+        this.pagination_limit = false;
+        this.pagination_input = false;
+        this.pagination_numbers = true;
+        this.indexColumn = true;
+        this.indexColumnHeader = '';
+        this.selectColumn = false;
+        this.multiSelect = true;
+        this.substituteRows = true;
+        this.expandableRows = false;
+        this.translations = __WEBPACK_IMPORTED_MODULE_5__types_default_translations_type__["a" /* defaultTranslations */];
+        this.selectOnRowClick = false;
+        this.autoReload = true;
+        this.showReloading = false;
+        this._sortAsc = true;
+        this._offset = 0;
+        this._limit = 10;
+        // Reloading:
+        this._reloading = false;
+        this.reload = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this._displayParams = {}; // params of the last finished reload
+        this._scheduledReload = null;
+        // event handlers:
+        this.rowClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.rowDoubleClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.headerClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.cellClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.selectedRows = [];
+        this._selectAllCheckbox = false;
+        // column resizing:
+        this._resizeInProgress = false;
+        this.resizeLimit = 30;
+    }
+    Object.defineProperty(DataTable.prototype, "items", {
+        get: function () {
+            return this._items;
+        },
+        set: function (items) {
+            this._items = items;
+            this._onReloadFinished();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DataTable.prototype, "sortBy", {
+        get: function () {
+            return this._sortBy;
+        },
+        set: function (value) {
+            this._sortBy = value;
+            this._triggerReload();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DataTable.prototype, "sortAsc", {
+        get: function () {
+            return this._sortAsc;
+        },
+        set: function (value) {
+            this._sortAsc = value;
+            this._triggerReload();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DataTable.prototype, "offset", {
+        get: function () {
+            return this._offset;
+        },
+        set: function (value) {
+            this._offset = value;
+            this._triggerReload();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DataTable.prototype, "limit", {
+        get: function () {
+            return this._limit;
+        },
+        set: function (value) {
+            this._limit = value;
+            this._triggerReload();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DataTable.prototype, "page", {
+        // calculated property:
+        get: function () {
+            return Math.floor(this.offset / this.limit) + 1;
+        },
+        set: function (value) {
+            this.offset = (value - 1) * this.limit;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DataTable.prototype, "lastPage", {
+        get: function () {
+            return Math.ceil(this.itemCount / this.limit);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    // setting multiple observable properties simultaneously
+    DataTable.prototype.sort = function (sortBy, asc) {
+        this.sortBy = sortBy;
+        this.sortAsc = asc;
+    };
+    // init
+    DataTable.prototype.ngOnInit = function () {
+        this._initDefaultValues();
+        this._initDefaultClickEvents();
+        this._updateDisplayParams();
+        if (this.autoReload && this._scheduledReload == null) {
+            this.reloadItems();
+        }
+    };
+    DataTable.prototype._initDefaultValues = function () {
+        this.indexColumnVisible = this.indexColumn;
+        this.selectColumnVisible = this.selectColumn;
+        this.expandColumnVisible = this.expandableRows;
+    };
+    DataTable.prototype._initDefaultClickEvents = function () {
+        var _this = this;
+        this.headerClick.subscribe(function (tableEvent) { return _this.sortColumn(tableEvent.column); });
+        if (this.selectOnRowClick) {
+            this.rowClick.subscribe(function (tableEvent) { return tableEvent.row.selected = !tableEvent.row.selected; });
+        }
+    };
+    Object.defineProperty(DataTable.prototype, "reloading", {
+        get: function () {
+            return this._reloading;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DataTable.prototype.reloadItems = function () {
+        this._reloading = true;
+        this.reload.emit(this._getRemoteParameters());
+    };
+    DataTable.prototype._onReloadFinished = function () {
+        this._updateDisplayParams();
+        this._selectAllCheckbox = false;
+        this._reloading = false;
+    };
+    Object.defineProperty(DataTable.prototype, "displayParams", {
+        get: function () {
+            return this._displayParams;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DataTable.prototype._updateDisplayParams = function () {
+        this._displayParams = {
+            sortBy: this.sortBy,
+            sortAsc: this.sortAsc,
+            offset: this.offset,
+            limit: this.limit
+        };
+    };
+    // for avoiding cascading reloads if multiple params are set at once:
+    DataTable.prototype._triggerReload = function () {
+        var _this = this;
+        if (this._scheduledReload) {
+            clearTimeout(this._scheduledReload);
+        }
+        this._scheduledReload = setTimeout(function () {
+            _this.reloadItems();
+        });
+    };
+    DataTable.prototype.rowClicked = function (row, event) {
+        this.rowClick.emit({ row: row, event: event });
+    };
+    DataTable.prototype.rowDoubleClicked = function (row, event) {
+        this.rowDoubleClick.emit({ row: row, event: event });
+    };
+    DataTable.prototype.headerClicked = function (column, event) {
+        if (!this._resizeInProgress) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.headerClick.emit({ column: column, event: event });
+        }
+        else {
+            this._resizeInProgress = false; // this is because I can't prevent click from mousup of the drag end
+        }
+    };
+    DataTable.prototype.cellClicked = function (column, row, event) {
+        this.cellClick.emit({ row: row, column: column, event: event });
+    };
+    // functions:
+    DataTable.prototype._getRemoteParameters = function () {
+        var params = {};
+        if (this.sortBy) {
+            params.sortBy = this.sortBy;
+            params.sortAsc = this.sortAsc;
+        }
+        if (this.pagination) {
+            params.offset = this.offset;
+            params.limit = this.limit;
+        }
+        return params;
+    };
+    DataTable.prototype.sortColumn = function (column) {
+        if (column.sortable) {
+            var ascending = this.sortBy === column.property ? !this.sortAsc : true;
+            this.sort(column.property, ascending);
+        }
+    };
+    Object.defineProperty(DataTable.prototype, "columnCount", {
+        get: function () {
+            var count = 0;
+            count += this.indexColumnVisible ? 1 : 0;
+            count += this.selectColumnVisible ? 1 : 0;
+            count += this.expandColumnVisible ? 1 : 0;
+            this.columns.toArray().forEach(function (column) {
+                count += column.visible ? 1 : 0;
+            });
+            return count;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DataTable.prototype.getRowColor = function (item, index, row) {
+        if (this.rowColors !== undefined) {
+            return this.rowColors(item, row, index);
+        }
+    };
+    Object.defineProperty(DataTable.prototype, "selectAllCheckbox", {
+        get: function () {
+            return this._selectAllCheckbox;
+        },
+        set: function (value) {
+            this._selectAllCheckbox = value;
+            this._onSelectAllChanged(value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DataTable.prototype._onSelectAllChanged = function (value) {
+        this.rows.toArray().forEach(function (row) { return row.selected = value; });
+    };
+    DataTable.prototype.onRowSelectChanged = function (row) {
+        // maintain the selectedRow(s) view
+        if (this.multiSelect) {
+            var index = this.selectedRows.indexOf(row);
+            if (row.selected && index < 0) {
+                this.selectedRows.push(row);
+            }
+            else if (!row.selected && index >= 0) {
+                this.selectedRows.splice(index, 1);
+            }
+        }
+        else {
+            if (row.selected) {
+                this.selectedRow = row;
+            }
+            else if (this.selectedRow === row) {
+                this.selectedRow = undefined;
+            }
+        }
+        // unselect all other rows:
+        if (row.selected && !this.multiSelect) {
+            this.rows.toArray().filter(function (row_) { return row_.selected; }).forEach(function (row_) {
+                if (row_ !== row) {
+                    row_.selected = false;
+                }
+            });
+        }
+    };
+    Object.defineProperty(DataTable.prototype, "substituteItems", {
+        // other:
+        get: function () {
+            return Array.from({ length: this.displayParams.limit - this.items.length });
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DataTable.prototype.resizeColumnStart = function (event, column, columnElement) {
+        var _this = this;
+        this._resizeInProgress = true;
+        Object(__WEBPACK_IMPORTED_MODULE_6__utils_drag__["a" /* drag */])(event, {
+            move: function (moveEvent, dx) {
+                if (_this._isResizeInLimit(columnElement, dx)) {
+                    column.width = columnElement.offsetWidth + dx;
+                }
+            },
+        });
+    };
+    DataTable.prototype._isResizeInLimit = function (columnElement, dx) {
+        /* This is needed because CSS min-width didn't work on table-layout: fixed.
+         Without the limits, resizing can make the next column disappear completely,
+         and even increase the table width. The current implementation suffers from the fact,
+         that offsetWidth sometimes contains out-of-date values. */
+        if ((dx < 0 && (columnElement.offsetWidth + dx) <= this.resizeLimit) ||
+            !columnElement.nextElementSibling || // resizing doesn't make sense for the last visible column
+            (dx >= 0 && (columnElement.nextElementSibling.offsetWidth + dx) <= this.resizeLimit)) {
+            return false;
+        }
+        return true;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Array])
+    ], DataTable.prototype, "items", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Number)
+    ], DataTable.prototype, "itemCount", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ContentChildren */])(__WEBPACK_IMPORTED_MODULE_1__column_component__["a" /* DataTableColumn */]),
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* QueryList */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* QueryList */]) === "function" && _a || Object)
+    ], DataTable.prototype, "columns", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_17" /* ViewChildren */])(__WEBPACK_IMPORTED_MODULE_2__row_component__["a" /* DataTableRow */]),
+        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* QueryList */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Z" /* QueryList */]) === "function" && _b || Object)
+    ], DataTable.prototype, "rows", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ContentChild */])('dataTableExpand'),
+        __metadata("design:type", typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* TemplateRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* TemplateRef */]) === "function" && _c || Object)
+    ], DataTable.prototype, "expandTemplate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", String)
+    ], DataTable.prototype, "headerTitle", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "header", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "pagination", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "pagination_range", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "pagination_limit", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "pagination_input", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "pagination_numbers", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "indexColumn", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "indexColumnHeader", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__types_row_callback_type__["RowCallback"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__types_row_callback_type__["RowCallback"]) === "function" && _d || Object)
+    ], DataTable.prototype, "rowColors", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__types_row_callback_type__["RowCallback"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__types_row_callback_type__["RowCallback"]) === "function" && _e || Object)
+    ], DataTable.prototype, "rowTooltip", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "selectColumn", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "multiSelect", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "substituteRows", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "expandableRows", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__types_data_table_translations_type__["DataTableTranslations"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__types_data_table_translations_type__["DataTableTranslations"]) === "function" && _f || Object)
+    ], DataTable.prototype, "translations", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "selectOnRowClick", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "autoReload", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "showReloading", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", String)
+    ], DataTable.prototype, "noDataMessage", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], DataTable.prototype, "sortBy", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], DataTable.prototype, "sortAsc", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], DataTable.prototype, "offset", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], DataTable.prototype, "limit", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], DataTable.prototype, "page", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "reload", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "rowClick", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "rowDoubleClick", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "headerClick", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+        __metadata("design:type", Object)
+    ], DataTable.prototype, "cellClick", void 0);
+    DataTable = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+            selector: 'data-table',
+            template: __WEBPACK_IMPORTED_MODULE_7__table_template__["a" /* TABLE_TEMPLATE */],
+            styles: [__WEBPACK_IMPORTED_MODULE_8__table_style__["a" /* TABLE_STYLE */]]
+        })
+    ], DataTable);
+    return DataTable;
+    var _a, _b, _c, _d, _e, _f;
+}());
+
+//# sourceMappingURL=table.component.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/components/table.style.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TABLE_STYLE; });
+var TABLE_STYLE = "\n/* bootstrap override: */\n\n:host /deep/ .data-table.table > tbody+tbody {\n    border-top: none;\n}\n:host /deep/ .data-table.table td {\n    vertical-align: middle;\n}\n\n:host /deep/ .data-table > thead > tr > th,\n:host /deep/ .data-table > tbody > tr > td {\n\toverflow: hidden;\n}\n\n/* I can't use the bootstrap striped table, because of the expandable rows */\n:host /deep/ .row-odd {\n    background-color: #F6F6F6;\n}\n:host /deep/ .row-even {\n}\n\n.data-table .substitute-rows > tr:hover,\n:host /deep/ .data-table .data-table-row:hover {\n    background-color: #ECECEC;\n}\n/* table itself: */\n\n.data-table {\n    box-shadow: 0 0 15px rgb(236, 236, 236);\n    table-layout: fixed;\n}\n\n/* header cells: */\n\n.column-header {\n    position: relative;\n}\n.expand-column-header {\n\twidth: 50px;\n}\n.select-column-header {\n\twidth: 50px;\n\ttext-align: center;\n}\n.index-column-header {\n\twidth: 40px;\n}\n.column-header.sortable {\n    cursor: pointer;\n}\n.column-header .column-sort-icon {\n\tfloat: right;\n}\n.column-header.resizable .column-sort-icon {\n    margin-right: 8px;\n}\n.column-header .column-sort-icon .column-sortable-icon {\n    color: lightgray;\n}\n.column-header .column-resize-handle {\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin: 0;\n    padding: 0;\n    width: 8px;\n    height: 100%;\n    cursor: col-resize;\n}\n\n/* cover: */\n\n.data-table-box {\n    position: relative;\n}\n\n.loading-cover {\n   position: absolute;\n   width: 100%;\n   height: 100%;\n   background-color: rgba(255, 255, 255, 0.3);\n   top: 0;\n}\n";
+//# sourceMappingURL=table.style.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/components/table.template.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TABLE_TEMPLATE; });
+var TABLE_TEMPLATE = "\n<div class=\"data-table-wrapper\">\n    <data-table-header *ngIf=\"header\"></data-table-header>\n\n    <div class=\"data-table-box\">\n        <table class=\"table table-condensed table-bordered data-table\">\n            <thead>\n                <tr>\n                    <th scope=\"col\" [hide]=\"!expandColumnVisible\" class=\"expand-column-header\">\n                    <th scope=\"col\" [hide]=\"!indexColumnVisible\" class=\"index-column-header\">\n                        <span [textContent]=\"indexColumnHeader\"></span>\n                    </th>\n                    <th scope=\"col\" [hide]=\"!selectColumnVisible\" class=\"select-column-header\">\n                        <input [hide]=\"!multiSelect\" type=\"checkbox\" [(ngModel)]=\"selectAllCheckbox\" [attr.aria-label]=\"translations.selectAllRows\" />\n                    </th>\n                    <th scope=\"col\" *ngFor=\"let column of columns\" #th [hide]=\"!column.visible\" \n                    \t  (click)=\"headerClicked(column, $event)\" \n                    \t  (keydown.enter)=\"headerClicked(column, $event)\" (keydown.space)=\"headerClicked(column, $event)\"\n                        [class.sortable]=\"column.sortable\" [class.resizable]=\"column.resizable\"\n                        [ngClass]=\"column.styleClassObject\" class=\"column-header\" [style.width]=\"column.width | px\"\n                        [attr.aria-sort]=\"column.sortable ? (column.property === sortBy ? (sortAsc ? 'ascending' : 'descending') : 'none') : null\"\n                        [attr.tabindex]=\"column.sortable ? '0' : null\">\n                        <span *ngIf=\"!column.headerTemplate\" [textContent]=\"column.header\"></span>\n                        <span *ngIf=\"column.headerTemplate\" [ngTemplateOutlet]=\"column.headerTemplate\" [ngOutletContext]=\"{column: column}\"></span>\n                        <span class=\"column-sort-icon\" *ngIf=\"column.sortable\">\n                            <span class=\"glyphicon glyphicon-sort column-sortable-icon\" [hide]=\"column.property === sortBy\"></span>\n                            <span [hide]=\"column.property !== sortBy\">\n                                 <span class=\"glyphicon\" [ngClass]=\"{'glyphicon-triangle-top': !sortAsc, 'glyphicon-triangle-bottom': sortAsc}\"></span>\n                            </span>\n                        </span>\n                        <span *ngIf=\"column.resizable\" class=\"column-resize-handle\" (mousedown)=\"resizeColumnStart($event, column, th)\"></span>\n                    </th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let item of items; let index=index\" class=\"data-table-row-wrapper\"\n                   dataTableRow #row [item]=\"item\" [index]=\"index\" (selectedChange)=\"onRowSelectChanged(row)\">\n            </tbody>\n            <tbody *ngIf=\"itemCount === 0 && noDataMessage\">\n                <tr>\n                    <td [attr.colspan]=\"columnCount\">{{ noDataMessage }}</td>\n                </tr>\n            </tbody>\n            <tbody class=\"substitute-rows\" *ngIf=\"pagination && substituteRows\">\n                <tr *ngFor=\"let item of substituteItems, let index = index\"\n                    [class.row-odd]=\"(index + items.length) % 2 === 0\"\n                    [class.row-even]=\"(index + items.length) % 2 === 1\"\n                    >\n                    <td [hide]=\"!expandColumnVisible\"></td>\n                    <td [hide]=\"!indexColumnVisible\">&nbsp;</td>\n                    <td [hide]=\"!selectColumnVisible\"></td>\n                    <td *ngFor=\"let column of columns\" [hide]=\"!column.visible\">\n                </tr>\n            </tbody>\n        </table>\n        <div class=\"loading-cover\" *ngIf=\"showReloading && reloading\"></div>\n    </div>\n\n    <data-table-pagination\n        *ngIf=\"pagination\"\n        [show_range]=\"pagination_range\"\n        [show_limit]=\"pagination_limit\"\n        [show_input]=\"pagination_input\"\n        [show_numbers]=\"pagination_numbers\"></data-table-pagination>\n</div>\n";
+//# sourceMappingURL=table.template.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/index.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export DATA_TABLE_DIRECTIVES */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataTableModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_table_component__ = __webpack_require__("../../../../angular-4-data-table/src/components/table.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_column_component__ = __webpack_require__("../../../../angular-4-data-table/src/components/column.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_row_component__ = __webpack_require__("../../../../angular-4-data-table/src/components/row.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_pagination_component__ = __webpack_require__("../../../../angular-4-data-table/src/components/pagination.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_header_component__ = __webpack_require__("../../../../angular-4-data-table/src/components/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils_px__ = __webpack_require__("../../../../angular-4-data-table/src/utils/px.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__utils_hide__ = __webpack_require__("../../../../angular-4-data-table/src/utils/hide.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__utils_min__ = __webpack_require__("../../../../angular-4-data-table/src/utils/min.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__types_data_table_translations_type__ = __webpack_require__("../../../../angular-4-data-table/src/types/data-table-translations.type.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__types_data_table_translations_type___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__types_data_table_translations_type__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__types_cell_callback_type__ = __webpack_require__("../../../../angular-4-data-table/src/types/cell-callback.type.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__types_cell_callback_type___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__types_cell_callback_type__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__types_row_callback_type__ = __webpack_require__("../../../../angular-4-data-table/src/types/row-callback.type.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__types_row_callback_type___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__types_row_callback_type__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__types_data_table_params_type__ = __webpack_require__("../../../../angular-4-data-table/src/types/data-table-params.type.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__types_data_table_params_type___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__types_data_table_params_type__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__types_default_translations_type__ = __webpack_require__("../../../../angular-4-data-table/src/types/default-translations.type.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__tools_data_table_resource__ = __webpack_require__("../../../../angular-4-data-table/src/tools/data-table-resource.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_16__tools_data_table_resource__["a"]; });
+/* unused harmony reexport DataTable */
+/* unused harmony reexport DataTableColumn */
+/* unused harmony reexport DataTableRow */
+/* unused harmony reexport DataTablePagination */
+/* unused harmony reexport DataTableHeader */
+/* unused harmony reexport DataTableTranslations */
+/* unused harmony reexport CellCallback */
+/* unused harmony reexport RowCallback */
+/* unused harmony reexport DataTableParams */
+/* unused harmony reexport defaultTranslations */
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var DATA_TABLE_DIRECTIVES = [__WEBPACK_IMPORTED_MODULE_3__components_table_component__["a" /* DataTable */], __WEBPACK_IMPORTED_MODULE_4__components_column_component__["a" /* DataTableColumn */]];
+var DataTableModule = /** @class */ (function () {
+    function DataTableModule() {
+    }
+    DataTableModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]],
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_3__components_table_component__["a" /* DataTable */], __WEBPACK_IMPORTED_MODULE_4__components_column_component__["a" /* DataTableColumn */],
+                __WEBPACK_IMPORTED_MODULE_5__components_row_component__["a" /* DataTableRow */], __WEBPACK_IMPORTED_MODULE_6__components_pagination_component__["a" /* DataTablePagination */], __WEBPACK_IMPORTED_MODULE_7__components_header_component__["a" /* DataTableHeader */],
+                __WEBPACK_IMPORTED_MODULE_8__utils_px__["a" /* PixelConverter */], __WEBPACK_IMPORTED_MODULE_9__utils_hide__["a" /* Hide */], __WEBPACK_IMPORTED_MODULE_10__utils_min__["a" /* MinPipe */]
+            ],
+            exports: [__WEBPACK_IMPORTED_MODULE_3__components_table_component__["a" /* DataTable */], __WEBPACK_IMPORTED_MODULE_4__components_column_component__["a" /* DataTableColumn */]]
+        })
+    ], DataTableModule);
+    return DataTableModule;
+}());
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/tools/data-table-resource.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataTableResource; });
+var DataTableResource = /** @class */ (function () {
+    function DataTableResource(items) {
+        this.items = items;
+    }
+    DataTableResource.prototype.query = function (params, filter) {
+        var result = [];
+        if (filter) {
+            result = this.items.filter(filter);
+        }
+        else {
+            result = this.items.slice(); // shallow copy to use for sorting instead of changing the original
+        }
+        if (params.sortBy) {
+            result.sort(function (a, b) {
+                if (typeof a[params.sortBy] === 'string') {
+                    return a[params.sortBy].localeCompare(b[params.sortBy]);
+                }
+                else {
+                    return a[params.sortBy] - b[params.sortBy];
+                }
+            });
+            if (params.sortAsc === false) {
+                result.reverse();
+            }
+        }
+        if (params.offset !== undefined) {
+            if (params.limit === undefined) {
+                result = result.slice(params.offset, result.length);
+            }
+            else {
+                result = result.slice(params.offset, params.offset + params.limit);
+            }
+        }
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () { return resolve(result); });
+        });
+    };
+    DataTableResource.prototype.count = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () { return resolve(_this.items.length); });
+        });
+    };
+    return DataTableResource;
+}());
+
+//# sourceMappingURL=data-table-resource.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/types/cell-callback.type.ts":
+/***/ (function(module, exports) {
+
+//# sourceMappingURL=cell-callback.type.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/types/data-table-params.type.ts":
+/***/ (function(module, exports) {
+
+//# sourceMappingURL=data-table-params.type.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/types/data-table-translations.type.ts":
+/***/ (function(module, exports) {
+
+//# sourceMappingURL=data-table-translations.type.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/types/default-translations.type.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return defaultTranslations; });
+var defaultTranslations = {
+    headerReload: 'reload',
+    headerColumnSelector: 'column selector',
+    indexColumn: 'index',
+    selectColumn: 'select',
+    selectRow: 'select',
+    selectAllRows: 'select',
+    expandColumn: 'expand',
+    expandRow: 'expand',
+    paginationLimit: 'Limit',
+    paginationRange: 'Results'
+};
+//# sourceMappingURL=default-translations.type.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/types/row-callback.type.ts":
+/***/ (function(module, exports) {
+
+//# sourceMappingURL=row-callback.type.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/utils/drag.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = drag;
+function drag(event, _a) {
+    var move = _a.move, up = _a.up;
+    var startX = event.pageX;
+    var startY = event.pageY;
+    var x = startX;
+    var y = startY;
+    var moved = false;
+    function mouseMoveHandler(event) {
+        var dx = event.pageX - x;
+        var dy = event.pageY - y;
+        x = event.pageX;
+        y = event.pageY;
+        if (dx || dy)
+            moved = true;
+        move(event, dx, dy, x, y);
+        event.preventDefault(); // to avoid text selection
+    }
+    function mouseUpHandler(event) {
+        x = event.pageX;
+        y = event.pageY;
+        document.removeEventListener('mousemove', mouseMoveHandler);
+        document.removeEventListener('mouseup', mouseUpHandler);
+        if (up)
+            up(event, x, y, moved);
+    }
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
+}
+//# sourceMappingURL=drag.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/utils/hide.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Hide; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+function isBlank(obj) {
+    return obj === undefined || obj === null;
+}
+var Hide = /** @class */ (function () {
+    function Hide(_elementRef, _renderer) {
+        this._elementRef = _elementRef;
+        this._renderer = _renderer;
+        this._prevCondition = null;
+    }
+    Object.defineProperty(Hide.prototype, "hide", {
+        set: function (newCondition) {
+            this.initDisplayStyle();
+            if (newCondition && (isBlank(this._prevCondition) || !this._prevCondition)) {
+                this._prevCondition = true;
+                this._renderer.setElementStyle(this._elementRef.nativeElement, 'display', 'none');
+            }
+            else if (!newCondition && (isBlank(this._prevCondition) || this._prevCondition)) {
+                this._prevCondition = false;
+                this._renderer.setElementStyle(this._elementRef.nativeElement, 'display', this._displayStyle);
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Hide.prototype.initDisplayStyle = function () {
+        if (this._displayStyle === undefined) {
+            var displayStyle = this._elementRef.nativeElement.style.display;
+            if (displayStyle && displayStyle !== 'none') {
+                this._displayStyle = displayStyle;
+            }
+        }
+    };
+    Hide = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Directive */])({ selector: '[hide]', inputs: ['hide'] }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ElementRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Renderer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Renderer */]) === "function" && _b || Object])
+    ], Hide);
+    return Hide;
+    var _a, _b;
+}());
+
+//# sourceMappingURL=hide.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/utils/min.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinPipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var MinPipe = /** @class */ (function () {
+    function MinPipe() {
+    }
+    MinPipe.prototype.transform = function (value, args) {
+        return Math.min.apply(null, value);
+    };
+    MinPipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Pipe */])({
+            name: 'min'
+        })
+    ], MinPipe);
+    return MinPipe;
+}());
+
+//# sourceMappingURL=min.js.map
+
+/***/ }),
+
+/***/ "../../../../angular-4-data-table/src/utils/px.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PixelConverter; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var PixelConverter = /** @class */ (function () {
+    function PixelConverter() {
+    }
+    PixelConverter.prototype.transform = function (value, args) {
+        if (value === undefined) {
+            return;
+        }
+        if (typeof value === 'string') {
+            return value;
+        }
+        if (typeof value === 'number') {
+            return value + 'px';
+        }
+    };
+    PixelConverter = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Pipe */])({
+            name: 'px'
+        })
+    ], PixelConverter);
+    return PixelConverter;
+}());
+
+//# sourceMappingURL=px.js.map
+
+/***/ }),
+
 /***/ "../../../../css-loader/lib/css-base.js":
 /***/ (function(module, exports) {
 
@@ -971,7 +2290,7 @@ module.exports.InvalidTokenError = InvalidTokenError;
         relativeTime : {
             future : '%s sonra',
             past : '%s əvvəl',
-            s : 'birneçə saniyyə',
+            s : 'birneçə saniyə',
             ss : '%d saniyə',
             m : 'bir dəqiqə',
             mm : '%d dəqiqə',
@@ -1067,7 +2386,7 @@ module.exports.InvalidTokenError = InvalidTokenError;
         weekdays : {
             format: 'нядзелю_панядзелак_аўторак_сераду_чацвер_пятніцу_суботу'.split('_'),
             standalone: 'нядзеля_панядзелак_аўторак_серада_чацвер_пятніца_субота'.split('_'),
-            isFormat: /\[ ?[Вв] ?(?:мінулую|наступную)? ?\] ?dddd/
+            isFormat: /\[ ?[Ууў] ?(?:мінулую|наступную)? ?\] ?dddd/
         },
         weekdaysShort : 'нд_пн_ат_ср_чц_пт_сб'.split('_'),
         weekdaysMin : 'нд_пн_ат_ср_чц_пт_сб'.split('_'),
@@ -8373,7 +9692,7 @@ module.exports.InvalidTokenError = InvalidTokenError;
         calendar : {
             sameDay : '[ਅਜ] LT',
             nextDay : '[ਕਲ] LT',
-            nextWeek : 'dddd, LT',
+            nextWeek : '[ਅਗਲਾ] dddd, LT',
             lastDay : '[ਕਲ] LT',
             lastWeek : '[ਪਿਛਲੇ] dddd, LT',
             sameElse : 'L'
@@ -13647,9 +14966,9 @@ module.exports.InvalidTokenError = InvalidTokenError;
 
             mom = createUTC([2000, 1]).day(i);
             if (strict && !this._fullWeekdaysParse[i]) {
-                this._fullWeekdaysParse[i] = new RegExp('^' + this.weekdays(mom, '').replace('.', '\.?') + '$', 'i');
-                this._shortWeekdaysParse[i] = new RegExp('^' + this.weekdaysShort(mom, '').replace('.', '\.?') + '$', 'i');
-                this._minWeekdaysParse[i] = new RegExp('^' + this.weekdaysMin(mom, '').replace('.', '\.?') + '$', 'i');
+                this._fullWeekdaysParse[i] = new RegExp('^' + this.weekdays(mom, '').replace('.', '\\.?') + '$', 'i');
+                this._shortWeekdaysParse[i] = new RegExp('^' + this.weekdaysShort(mom, '').replace('.', '\\.?') + '$', 'i');
+                this._minWeekdaysParse[i] = new RegExp('^' + this.weekdaysMin(mom, '').replace('.', '\\.?') + '$', 'i');
             }
             if (!this._weekdaysParse[i]) {
                 regex = '^' + this.weekdays(mom, '') + '|^' + this.weekdaysShort(mom, '') + '|^' + this.weekdaysMin(mom, '');
@@ -14452,7 +15771,7 @@ module.exports.InvalidTokenError = InvalidTokenError;
 
     function preprocessRFC2822(s) {
         // Remove comments and folding whitespace and replace multiple-spaces with a single space
-        return s.replace(/\([^)]*\)|[\n\t]/g, ' ').replace(/(\s\s+)/g, ' ').trim();
+        return s.replace(/\([^)]*\)|[\n\t]/g, ' ').replace(/(\s\s+)/g, ' ').replace(/^\s\s*/, '').replace(/\s\s*$/, '');
     }
 
     function checkWeekday(weekdayStr, parsedInput, config) {
@@ -16631,7 +17950,7 @@ module.exports.InvalidTokenError = InvalidTokenError;
     // Side effect imports
 
 
-    hooks.version = '2.22.1';
+    hooks.version = '2.22.2';
 
     setHookCallback(createLocal);
 
@@ -22323,9 +23642,12 @@ and limitations under the License.
 ***************************************************************************** */
 /* global Reflect, Promise */
 
-var extendStatics = Object.setPrototypeOf ||
-    ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-    function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
 
 function __extends(d, b) {
     extendStatics(d, b);
@@ -22333,12 +23655,15 @@ function __extends(d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 }
 
-var __assign = Object.assign || function __assign(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
     }
-    return t;
+    return __assign.apply(this, arguments);
 }
 
 function __rest(s, e) {
@@ -22382,8 +23707,8 @@ function __generator(thisArg, body) {
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
         while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
                 case 0: case 1: t = op; break;
                 case 4: _.label++; return { value: op[1], done: false };

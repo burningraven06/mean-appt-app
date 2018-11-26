@@ -22,7 +22,9 @@ export class AppointmentDetailsComponent implements OnInit {
   user_id = this.authService.getLoggedUserID();
 
   appointment: Appointment;
+  showMainButtons = true;
   show_editForm = false;
+  appt_not_found = false;
 
   show_alert = false;
   show_error = false;
@@ -32,17 +34,20 @@ export class AppointmentDetailsComponent implements OnInit {
   resetShowError(){
     this.show_error = false;
     this.show_alert = false;
+    this.appt_not_found = false;
   }
 
   toggleEditForm(){
     this.show_delete = false;
     this.show_editForm = !this.show_editForm;
+    this.showMainButtons = !this.showMainButtons
     this.getAppointment();
   }
 
   toggleDelete(){
     this.show_editForm = false;
     this.show_delete = !this.show_delete;
+    this.showMainButtons = !this.showMainButtons
   }
 
   editAppt(editForm: any){
@@ -63,13 +68,15 @@ export class AppointmentDetailsComponent implements OnInit {
     });
   }
 
-  getAppointment(): void{
+  getAppointment(){
     this.appointmentService.getApptByIdOfLoggedUser(this.user_id, this.appt_id)
     .then( (data) => {
       this.appointment = data;
     })
     .catch(err => {
-      console.log(err);
+      this.show_error = true;
+      this.err_text = "Something went down! Are you sure you provided the correct URL?";
+      this.appt_not_found = true;
     });
   }
 
