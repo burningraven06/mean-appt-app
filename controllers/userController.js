@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const kets = require("../env/keys");
+const keys = require("../env/keys");
 
 exports.loginUser = (req, res, next) => {
   if (!req.body.email || !req.body.password){
