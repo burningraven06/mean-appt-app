@@ -48,10 +48,10 @@ module.exports = {
 #### RUN APP -> PROD MODE
 ```sh
 $ cd mean-jrcp
-$ yarn run start-app
+$ yarn run start
 
 #Or with npm 
-$ npm run start-app
+$ npm run start
 ```
 
 #### RUN APP (in Angular Dev Mode)
