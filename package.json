@@ -8,8 +8,10 @@
     "start-app": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["mean", "node", "express", "angular", "angular4", "mongodb", "mongoose", "jwt", "rest"],
+  "private": true,
+  "author": "Toufiq (https://twitter.com/burningraven06)",
+  "description" : "MEAN App",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^2.0.1",
